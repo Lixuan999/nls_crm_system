@@ -11,7 +11,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @author 安详的苦丁茶
+ * @author xuan
  * @version 1.0
  * @date 2020/3/13 9:50
  */

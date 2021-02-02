@@ -3,7 +3,7 @@ package com.ckf.crm.utils;
 import com.ckf.crm.model.ResultFormat;
 
 /**
- * @author 安详的苦丁茶
+ * @author xuan
  * @version 1.0
  * @date 2020/2/17 14:53
  * 统一返回工具类

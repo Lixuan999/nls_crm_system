@@ -16,7 +16,7 @@ import java.util.List;
  * 服务类
  * </p>
  *
- * @author 安详的苦丁茶
+ * @author xuan
  * @since 2020-03-23
  */
 public interface RoleService extends IService<Role> {

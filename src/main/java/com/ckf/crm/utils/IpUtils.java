@@ -5,7 +5,7 @@ import java.net.UnknownHostException;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author 安详的苦丁茶
+ * @author xuan
  * @date 2020/6/1923:52
  */
 public class IpUtils {

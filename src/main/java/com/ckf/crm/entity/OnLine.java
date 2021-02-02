@@ -16,7 +16,7 @@ import org.apache.shiro.session.mgt.SimpleSession;
  * 
  * </p>
  *
- * @author 安详的苦丁茶
+ * @author xuan
  * @since 2020-06-14
  */
 @Data

@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * shiro工具类
  *
- * @author 安详的苦丁茶
+ * @author xuan
  * @version 1.0
  * @date 2020/3/18 15:35
  */

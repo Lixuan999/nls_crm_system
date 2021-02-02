@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author 安详的苦丁茶
+ * @author xuan
  * @date 2020/6/1923:55
  */
 public class DateUtils extends org.apache.commons.lang3.time.DateUtils {

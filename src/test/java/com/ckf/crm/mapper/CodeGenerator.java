@@ -17,7 +17,7 @@ import java.util.Scanner;
 /**
  * 代码生成器类
  *
- * @author 安详的苦丁茶
+ * @author xuan
  * @version 1.0
  * @date 2020/3/23 15:53
  */
@@ -50,7 +50,7 @@ public class CodeGenerator {
         GlobalConfig gc = new GlobalConfig();
         final String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("安详的苦丁茶");
+        gc.setAuthor("xuan");
         gc.setBaseResultMap(true);
         gc.setBaseColumnList(true);
         // 是否打开输出目录 默认为true
@@ -59,10 +59,10 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/ckf_crm?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://localhost:3306/nls_crm?useUnicode=true&useSSL=false&characterEncoding=utf8");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("root");
+        dsc.setPassword("qqcf258..");
         mpg.setDataSource(dsc);
 
         // 包配置

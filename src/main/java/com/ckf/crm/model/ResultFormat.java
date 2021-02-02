@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 /**
- * @author P安详的苦丁茶
+ * @author Pxuan
  * @version 1.0
  * @date 2020/2/17 14:41
  * 统一返回格式

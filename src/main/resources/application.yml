@@ -1,6 +1,6 @@
 # 服务器端口
 server:
-  port: 8084
+  port: 8099
 
 # Spring Boot 的数据源配置
 spring:

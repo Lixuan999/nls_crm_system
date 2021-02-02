@@ -10,7 +10,7 @@ import java.util.List;
  * 服务类
  * </p>
  *
- * @author 安详的苦丁茶
+ * @author xuan
  * @since 2020-04-05
  */
 public interface BusinessService extends IService<Business> {
