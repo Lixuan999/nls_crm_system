@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>用户登录</title>
     <link href="/static/lib/layui/css/layui.css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link type="text/css" href="/static/css/font-awesome.min.css" rel="stylesheet"/>
     <link type="text/css" href="/static/css/ace.min.css" rel="stylesheet"/>
     <link type="text/css" href="/static/css/ace-rtl.min.css" rel="stylesheet"/>
@@ -33,12 +34,12 @@
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="login-container">
-                    <div class="center">
+                    <div class="center" style="margin-top: 40%">
                         <h1>
-                            <i class="icon-leaf light-blue"></i>
-                            <span class="item-black">农林水员工管理系统</span>
+                            <i class="fa-list-ul:before"></i>
+                            <span class="white">农林水员工管理系统</span>
                         </h1>
-                        <h4 class="white-opaque">&copy; 怀化学院</h4>
+                        <h4 class="grey">&copy; 怀化学院</h4>
                     </div>
 
                     <div class="space-6"></div>
@@ -48,7 +49,7 @@
                             <div class="widget-body">
                                 <div class="widget-main">
                                     <h4 class="header blue lighter bigger">
-                                        <i class="icon-coffee green"></i>
+                                        <i class="fa-sun-o:before"> </i>
                                         请输入您的信息
                                     </h4>
 
@@ -57,11 +58,11 @@
                                     <form>
                                         <fieldset>
                                             <label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="text" id="name" class="form-control"
-                                                                   placeholder="请输入用户名"/>
-															<i class="icon-user"></i>
-														</span>
+                                                <i class="fa-user-secret"></i>
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="text" id="name" class="form-control"
+                                                           placeholder="请输入用户名"/>
+                                                </span>
                                             </label>
 
                                             <label class="block clearfix">
@@ -95,14 +96,14 @@
 
                                 <div class="toolbar clearfix">
                                     <div>
-                                        <a href="#" id="slipPssword" class="forgot-password-link">
-                                            <i class="icon-arrow-left"></i> 我忘记密码了
+                                        <a href="#" id="slipPssword" class="forgot-password-link" style="color: white">
+                                            忘记密码
                                         </a>
                                     </div>
 
                                     <div>
                                         <a href="#" onclick="show_box('signup-box'); return false;"
-                                           class="user-signup-link">
+                                           class="user-signup-link" style="color: white">
                                             我想注册
                                             <i class="icon-arrow-right"></i>
                                         </a>
@@ -245,7 +246,6 @@
 <script src="/static/js/jquery.min.js"></script>
 <script src="/static/lib/layui/layui.js"></script>
 <script src="/static/lib/layui/layui.all.js"></script>
-<script src="/static/js/login.js"></script>
 <script src="/static/js/message.js"></script>
 
 

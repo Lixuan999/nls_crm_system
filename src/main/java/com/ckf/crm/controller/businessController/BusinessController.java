@@ -104,11 +104,10 @@ public class BusinessController {
 
         if (flag) {
             log.info("禁用成功");
-            return outMap;
         } else {
             log.info("禁用失败");
-            return outMap;
         }
+        return outMap;
     }
 
     /**
