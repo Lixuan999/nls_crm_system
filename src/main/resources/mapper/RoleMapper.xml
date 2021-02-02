@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ckf.crm.mapper.RoleMapper">
+
+    <!-- 角色映射结果 -->
+    <resultMap id="RoleResult" type="com.ckf.crm.entity.Role">
+        <id column="rol_id" property="rolId"/>
+        <result column="r_name" property="rName"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+        <collection property="permissionList" javaType="java.util.List" resultMap="PermissionResult"/>
+        <collection property="departmentList" javaType="java.util.List" resultMap="DepartmentResultMap"/>
+    </resultMap>
+
+    <!-- 权限映射结果 -->
+    <resultMap id="PermissionResult" type="com.ckf.crm.entity.Permission">
+        <id column="permission_id" property="permissionId"/>
+        <result column="perm_name" property="permName"/>
+        <result column="permission" property="permission"/>
+        <result column="url" property="url"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+    <resultMap id="DepartmentResultMap" type="com.ckf.crm.entity.Department">
+        <id column="department_id" property="departmentId"/>
+        <result column="d_name" property="dName"/>
+        <result column="d_manager" property="dManager"/>
+        <result column="d_population" property="dPopulation"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+
+        select
+        role.rol_id,role.r_name,permission.permission_id,permission.perm_name,permission.permission,permission.url,department.department_id,department.d_name,role.create_time,role.update_time,role.is_del
+        from role
+        left join role_perm on role_perm.role_id=role.rol_id
+        left join permission on permission.permission_id=role_perm.perm_id
+        left join dept_role on dept_role.role_id=role.rol_id
+        left join department on department.department_id=dept_role.dep_id
+        group by rol_id
+    </sql>
+
+
+    <!-- 分页全查询角色信息-->
+    <select id="selectRoleList" resultMap="RoleResult">
+        <include refid="Base_Column_List"/>
+
+    </select>
+
+    <!--全查询角色信息-->
+    <select id="selectRolePermissionAll" resultMap="RoleResult">
+        <include refid="Base_Column_List"/>
+
+    </select>
+
+    <!--模糊查询角色名称-->
+    <select id="selectRoleNameLike" parameterType="java.lang.String" resultMap="RoleResult">
+        select * from role,department,permission
+        <where>
+            role.r_name like CONCAT ('%',#{rName},'%')
+        </where>
+
+
+    </select>
+
+</mapper>

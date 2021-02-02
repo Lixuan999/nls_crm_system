@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+
+<head>
+    <meta charset="UTF-8">
+    <title>添加权限</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/this-locality.css">
+    <link rel="stylesheet" href="/static/css/message.css">
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/js/xadmin.js"></script>
+    <script type="text/javascript" src="/static/js/message.js"></script>
+</head>
+
+<body>
+<div class="layui-fluid">
+    <div class="layui-row">
+        <form action="" method="post" class="layui-form layui-form-pane">
+
+            <div class="layui-form-item">
+                <label for="name" class="layui-form-label">
+                    <span class="x-red">*</span>权限名称
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="name" name="permName" required="" lay-verify="required"
+                           autocomplete="off" class="layui-input permName">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>拥有权限
+                </label>
+                <table class="layui-table layui-input-block">
+                    <tbody>
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="permission" lay-skin="primary" lay-filter="father"
+                                   title="员工管理">
+                        </td>
+                        <td>
+                            <div class="layui-input-block">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="emp:list"
+                                       title="员工查询">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="emp:add"
+                                       title="员工添加">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="emp:delete"
+                                       title="员工删除">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="emp:update"
+                                       title="员工修改">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="emp:update"
+                                       title="查看员工删除">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="adm:list"
+                                       title="查询管理员">
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="permission" lay-skin="primary" lay-filter="father"
+                                   title="部门管理">
+                        </td>
+                        <td>
+                            <div class="layui-input-block">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="dep:list"
+                                       title="部门查询">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="dep:add"
+                                       title="部门添加">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="dep:delete"
+                                       title="部门删除">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="dep:update"
+                                       title="部门修改">
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="permission" lay-skin="primary" lay-filter="father"
+                                   title="业务管理">
+                        </td>
+                        <td>
+                            <div class="layui-input-block">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="bus:list"
+                                       title="业务查询">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="bus:add"
+                                       title="业务添加">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="bus:delete"
+                                       title="业务删除">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="bus:update"
+                                       title="业务修改">
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="permission" lay-skin="primary" lay-filter="father"
+                                   title="订单管理">
+                        </td>
+                        <td>
+                            <div class="layui-input-block">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="ord:list"
+                                       title="订单查询">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="ord:add"
+                                       title="订单添加">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="ord:delete"
+                                       title="订单删除">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="ord:update"
+                                       title="订单修改">
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="permission" lay-skin="primary" lay-filter="father"
+                                   title="角色管理">
+                        </td>
+                        <td>
+                            <div class="layui-input-block">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="rol:list"
+                                       title="角色查询">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="rol:add"
+                                       title="角色添加">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="rol:delete"
+                                       title="角色删除">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="rol:update"
+                                       title="角色修改">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="permission" lay-skin="primary" lay-filter="father"
+                                   title="权限管理">
+                        </td>
+                        <td>
+                            <div class="layui-input-block">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="per:list"
+                                       title="权限查询">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="per:add"
+                                       title="权限添加">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="per:delete"
+                                       title="权限删除">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="per:update"
+                                       title="权限修改">
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="permission" lay-skin="primary" lay-filter="father"
+                                   title="文章管理">
+                        </td>
+                        <td>
+                            <div class="layui-input-block">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="gam:list"
+                                       title="文章查询">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="gam:add"
+                                       title="文章添加">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="gam:delete"
+                                       title="文章删除">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="gam:update"
+                                       title="文章修改">
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="permission" lay-skin="primary" lay-filter="father"
+                                   title="咨询管理">
+                        </td>
+                        <td>
+                            <div class="layui-input-block">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="con:list"
+                                       title="咨询查询">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="con:add"
+                                       title="咨询添加">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="con:delete"
+                                       title="咨询删除">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="con:update"
+                                       title="咨询修改">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="permission" lay-skin="primary" lay-filter="father"
+                                   title="客户管理">
+                        </td>
+                        <td>
+                            <div class="layui-input-block">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="cus:list"
+                                       title="客户查询">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="cus:add"
+                                       title="客户添加">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="cus:delete"
+                                       title="客户删除">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="cus:update"
+                                       title="客户修改">
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="permission" lay-skin="primary" lay-filter="father"
+                                   title="客户跟踪管理">
+                        </td>
+                        <td>
+                            <div class="layui-input-block">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="cont:list"
+                                       title="客户跟踪查询">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="cont:add"
+                                       title="客户跟踪添加">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="cont:delete"
+                                       title="客户跟踪删除">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="cont:update"
+                                       title="客户跟踪修改">
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="permission" lay-skin="primary" lay-filter="father"
+                                   title="正式客户管理">
+                        </td>
+                        <td>
+                            <div class="layui-input-block">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="offc:list"
+                                       title="正式客户查询">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="offc:add"
+                                       title="正式客户添加">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="offc:delete"
+                                       title="正式客户删除">
+                                <input name="permission" lay-skin="primary" type="checkbox" value="offc:update"
+                                       title="正式客户修改">
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="layui-form-item">
+                <!--         <label class="layui-form-label"><span class="x-red">*</span>url</label>
+                         <div class="layui-input-block">
+                             <input type="checkbox" name="url" value="/employee" lay-skin="primary" title="员工查询">
+                             <input type="checkbox" name="url" value="/empAdd" lay-skin="primary" title="员工添加">
+                             <input type="checkbox" name="url" value="/empDelete" lay-skin="primary" title="员工删除">
+                             <input type="checkbox" name="url" value="/empUpdate" lay-skin="primary" title="员工修改">
+
+                             <input type="checkbox" name="url" value="/department" lay-skin="primary" title="部门查询">
+                             <input type="checkbox" name="url" value="/depAdd" lay-skin="primary" title="部门添加">
+                             <input type="checkbox" name="url" value="/depDelete" lay-skin="primary" title="部门删除">
+                             <input type="checkbox" name="url" value="/depUpdate" lay-skin="primary" title="部门修改">
+
+                             <input type="checkbox" name="url" value="/business" lay-skin="primary" title="业务查询">
+                             <input type="checkbox" name="url" value="/busAdd" lay-skin="primary" title="业务添加">
+                             <input type="checkbox" name="url" value="/busDelete" lay-skin="primary" title="业务删除">
+                             <input type="checkbox" name="url" value="/busUpdate" lay-skin="primary" title="业务修改">
+
+                             <input type="checkbox" name="url" value="/orders" lay-skin="primary" title="订单查询">
+                             <input type="checkbox" name="url" value="/ordAdd" lay-skin="primary" title="订单添加">
+                             <input type="checkbox" name="url" value="/ordDelete" lay-skin="primary" title="订单删除">
+                             <input type="checkbox" name="url" value="/ordUpdate" lay-skin="primary" title="订单修改">
+
+                             <input type="checkbox" name="url" value="/role" lay-skin="primary" title="角色查询">
+                             <input type="checkbox" name="url" value="/rolAdd" lay-skin="primary" title="角色添加">
+                             <input type="checkbox" name="url" value="/rolDelete" lay-skin="primary" title="角色删除">
+                             <input type="checkbox" name="url" value="/rolUpdate" lay-skin="primary" title="角色修改">
+
+                             <input type="checkbox" name="url" value="/permission" lay-skin="primary" title="权限查询">
+                             <input type="checkbox" name="url" value="/perAdd" lay-skin="primary" title="权限添加">
+                             <input type="checkbox" name="url" value="/perDelete" lay-skin="primary" title="权限删除">
+                             <input type="checkbox" name="url" value="/perUpdate" lay-skin="primary" title="权限修改">
+
+                             <input type="checkbox" name="url" value="/gambit" lay-skin="primary" title="文章查询">
+                             <input type="checkbox" name="url" value="/gamAdd" lay-skin="primary" title="文章添加">
+                             <input type="checkbox" name="url" value="/gamDelete" lay-skin="primary" title="文章删除">
+                             <input type="checkbox" name="url" value="/camUpdate" lay-skin="primary" title="文章修改">
+
+                             <input type="checkbox" name="url" value="/consult" lay-skin="primary" title="咨询查询">
+                             <input type="checkbox" name="url" value="/conAdd" lay-skin="primary" title="咨询添加">
+                             <input type="checkbox" name="url" value="/conDelete" lay-skin="primary" title="咨询删除">
+                             <input type="checkbox" name="url" value="/conUpdate" lay-skin="primary" title="咨询修改">
+
+                             <input type="checkbox" name="url" value="/customer" lay-skin="primary" title="客户查询">
+                             <input type="checkbox" name="url" value="/cusAdd" lay-skin="primary" title="客户添加">
+                             <input type="checkbox" name="url" value="/cusDelete" lay-skin="primary" title="客户删除">
+                             <input type="checkbox" name="url" value="/cusUpdate" lay-skin="primary" title="客户修改">
+
+                             <input type="checkbox" name="url" value="/contact" lay-skin="primary" title="客户跟踪查询">
+                             <input type="checkbox" name="url" value="/contAdd" lay-skin="primary" title="客户跟踪添加">
+                             <input type="checkbox" name="url" value="/contDelete" lay-skin="primary" title="客户跟踪删除">
+                             <input type="checkbox" name="url" value="/contUpdate" lay-skin="primary" title="客户跟踪修改">
+
+                             <input type="checkbox" name="url" value="/offCustomer" lay-skin="primary" title="正式客户查询">
+                             <input type="checkbox" name="url" value="/offcAdd" lay-skin="primary" title="正式客户添加">
+                             <input type="checkbox" name="url" value="/offcDelete" lay-skin="primary" title="正式客户删除">
+                             <input type="checkbox" name="url" value="/offcUpdate" lay-skin="primary" title="正式客户修改">
+
+                             <input type="checkbox" name="url" value="/employeeDel" lay-skin="primary" title="查询删除员工">
+
+                             <input type="checkbox" name="url" value="/selectAdmin" lay-skin="primary" title="查询管理员">-->
+
+                <!--</div>-->
+            </div>
+
+            <div class="layui-form-item">
+                <label for="name" class="layui-form-label">
+                    <span class="x-red">*</span>url
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="url" name="url" required="" lay-verify="required"
+                           autocomplete="off" class="layui-input url">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit="" lay-filter="add">
+                        提交
+                    </button>
+                    <button type="reset" class="layui-btn layui-btn-normal">重置</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="/per/js/per-list.js"></script>
+<script type="text/javascript" src="/per/js/per-add.js"></script>
+
+</body>
+
+</html>

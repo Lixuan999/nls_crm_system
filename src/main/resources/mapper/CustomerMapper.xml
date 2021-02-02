@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ckf.crm.mapper.customerMapper.CustomerMapper">
+
+    <!--客户映射结果-->
+    <resultMap id="CustomerResultMap" type="com.ckf.crm.entity.customerEntity.Customer">
+        <id column="customer_id" property="customerId"/>
+        <result column="customer_name" property="customerName"/>
+        <result column="sex" property="sex"/>
+        <result column="phone" property="phone"/>
+        <result column="company" property="company"/>
+        <result column="address" property="address"/>
+        <result column="is_orders" property="isOrders"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+        <collection property="employeeList" javaType="java.util.List" resultMap="EmployeeResult"/>
+    </resultMap>
+
+    <!--员工映射结果-->
+    <resultMap id="EmployeeResult" type="com.ckf.crm.entity.Employee">
+        <id column="employee_id" property="employeeId"/>
+        <result column="emp_name" property="empName"/>
+        <result column="e_pwd" property="ePwd"/>
+        <result column="salt" property="salt"/>
+        <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
+        <result column="phone" property="phone"/>
+        <result column="address" property="address"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        select
+        customer.customer_id,customer.customer_name,customer.sex,customer.phone,customer.company,customer.address,customer.is_orders,employee.employee_id,emp_name,customer.create_time,customer.update_time,customer.is_del
+        from customer
+        left join cus_emp on cus_emp.cus_id=customer.customer_id
+        left join employee on employee.employee_id =cus_emp.emp_id
+    </sql>
+
+    <!--全查询客户信息-->
+    <select id="selectCustomerList" resultMap="CustomerResultMap">
+        <include refid="Base_Column_List"/>
+        where customer.is_del=0
+    </select>
+
+
+    <!--查询正式客户信息-->
+    <select id="selectOfficialCustomer" resultMap="CustomerResultMap">
+        <include refid="Base_Column_List"/>
+        where customer.is_del=0 and customer.is_orders=1
+    </select>
+
+    <!--模糊查询客户名称姓名-->
+    <select id="selectCustomerNameLike" parameterType="java.lang.String" resultMap="CustomerResultMap">
+        <include refid="Base_Column_List"/>
+
+        where customer.customer_name like CONCAT ('%',#{customer_name},'%')
+
+    </select>
+
+
+    <!--模糊查询正式客户姓名-->
+    <select id="selectCustomerOfficialLike" parameterType="java.lang.String" resultMap="CustomerResultMap">
+        <include refid="Base_Column_List"/>
+
+        where customer.customer_name like CONCAT ('%',#{customer_name},'%') and customer.is_orders =1
+
+    </select>
+
+</mapper>

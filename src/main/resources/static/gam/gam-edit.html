@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+
+<head>
+    <meta charset="UTF-8">
+    <title>修改员工</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/this-locality.css">
+    <link rel="stylesheet" href="/static/css/message.css">
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/js/xadmin.js"></script>
+    <script type="text/javascript"src="/static/js/message.js"></script>
+
+</head>
+
+<body class="childrenBody">
+
+        <form class="layui-form" style="width:80%;">
+            <input type="hidden" name="gambitId" class="gambitId">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>标题
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="gHeadline" required="" lay-verify="required" autocomplete="off"
+                           autocomplete="off"
+                           class="layui-input gHeadline">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>审核人
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="gAuditor" required="" lay-verify="required" autocomplete="off"
+                           class="layui-input gAuditor">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>审核时间
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="gAudiTime" required="" lay-verify="required" autocomplete="off"
+                           class="layui-input gAudiTime">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label ">
+                    <span class="x-red">*</span>创建人
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="gFounder" required="" lay-verify="required" autocomplete="off"
+                           class="layui-input gFounder">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>审核状态
+                </label>
+                <input type="radio" name="gCheckState" value="未审核" title="未审核" checked="">
+                <input type="radio" name="gCheckState" value="已通过" title="已通过">
+                <input type="radio" name="gCheckState" value="不通过" title="不通过">
+            </div>
+
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-filter="edit" lay-submit="">
+                        提交
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+
+<script type="text/javascript" src="/gam/js/gam-edit.js"></script>
+
+</body>
+</html>

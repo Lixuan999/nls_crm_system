@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>服务监控</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all"/>
+    <script type="text/javascript" src="/static/js/xadmin.js"></script>
+    <style type="text/css">
+        /*.text-danger {
+            color: #ed5565;
+        }*/
+    </style>
+</head>
+<body class="childrenBody">
+
+<div>
+    <div class="layui-row">
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">CPU</div>
+                <div class="layui-card-body layui-text">
+                    <table class="layui-table">
+                        <tr>
+                            <th>属性</th>
+                            <th>值</th>
+                        </tr>
+                        <tbody>
+                        <tr>
+                            <td>核心数</td>
+                            <td id="cpuNum">0个</td>
+                        </tr>
+                        <tr>
+                            <td>使用率</td>
+                            <td id="cpuUse">0%</td>
+                        </tr>
+                        <tr>
+                            <td>当前空闲率</td>
+                            <td id="cpuFree">0%</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">内存</div>
+                <div class="layui-card-body layui-text">
+                    <table class="layui-table">
+                        <tr>
+                            <th>属性</th>
+                            <th>内存</th>
+                            <th>JVM</th>
+                        </tr>
+                        <tbody>
+                        <tr>
+                            <td>总内存</td>
+                            <td id="memTotal">0GB</td>
+                            <td id="jvmTotal">0MB</td>
+                        </tr>
+                        <tr>
+                            <td>已用内存</td>
+                            <td id="memUsed">0GB</td>
+                            <td id="jvmUsed">0MB</td>
+                        </tr>
+                        <tr>
+                            <td>剩余内存</td>
+                            <td id="memFree">0GB</td>
+                            <td id="jvmFree">0MB</td>
+                        </tr>
+                       <!-- <tr>
+                            <td>使用率</td>
+                            <td  id="memUsage">0%</td>
+                            <td  id="jvmUsage">0%</td>
+                        </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="layui-row">
+    <div class="layui-col-md12">
+        <div class="layui-card">
+            <div class="ibox-content">
+                <div class="layui-row">
+                    <div class="layui-col-sm12">
+                        <div class="layui-card-header">服务器信息</div>
+                        <div class="layui-card-body layui-text">
+                            <table class="layui-table">
+                                <tbody>
+                                <tr>
+                                    <td>服务器名称</td>
+                                    <td id="sysComputerName">Tina</td>
+                                    <td>操作系统</td>
+                                    <td id="sysOsName">Linux</td>
+                                </tr>
+                                <tr>
+                                    <td>服务器IP</td>
+                                    <td id="sysComputerIp">127.0.0.1</td>
+                                    <td>系统架构</td>
+                                    <td id="sysOsArch">amd64</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="ibox-content">
+                    <div class="layui-row">
+                        <div class="layui-col-sm12">
+                            <div class="layui-card-header">虚拟机信息</div>
+                            <div class="layui-card-body layui-text">
+                                <table class="layui-table">
+                                    <tbody>
+                                    <tr>
+                                        <td>Java名称</td>
+                                        <td id="jvmName">Java</td>
+                                        <td>Java版本</td>
+                                        <td id="jvmVersion">1.8.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>启动时间</td>
+                                        <td id="jvmStartTime" >2020-06-06 00:00:00</td>
+                                        <td>运行时长</td>
+                                        <td id="jvmRunTime">0天0时0分</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1">安装路径</td>
+                                        <td colspan="3"  id="jvmHome"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1">项目路径</td>
+                                        <td colspan="3" id="sysUserDir"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-row">
+            <div class="layui-col-sm12">
+                <div class="layui-card">
+                    <div class="ibox-content">
+                        <div class="layui-row">
+                            <div class="layui-col-sm12">
+                                <div class="layui-card-header">磁盘状况</div>
+                                <div class="layui-card-body layui-text">
+                                    <table class="layui-table">
+                                        <tr>
+                                            <th>盘符路径</th>
+                                            <th>文件系统</th>
+                                            <th>盘符类型</th>
+                                            <th>总大小</th>
+                                            <th>可用大小</th>
+                                            <th>已用大小</th>
+                                            <th>已用百分比</th>
+                                        </tr>
+                                        <tbody id="sysFiles">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/layui/layui.js" charset="utf-8"></script>
+<script type="text/javascript" src="/server/js/systemInfo.js"></script>
+
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ckf.crm.mapper.businessMapper.OrdersMapper">
+
+    <!-- 订单查询映射结果 -->
+    <resultMap id="OrdersResultMap" type="com.ckf.crm.entity.businessEntity.Orders">
+        <id column="orders_id" property="ordersId"/>
+        <result column="total_price" property="totalPrice"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+        <collection property="businessList" javaType="java.util.List" resultMap="BusinessResultMap"/>
+        <collection property="customerList" javaType="java.util.List" resultMap="CustomerResultMap"/>
+    </resultMap>
+
+    <!-- 业务查询映射结果 -->
+    <resultMap id="BusinessResultMap" type="com.ckf.crm.entity.businessEntity.Business">
+        <id column="business_id" property="businessId"/>
+        <result column="b_name" property="bName"/>
+        <result column="head" property="head"/>
+        <result column="phone" property="phone"/>
+        <result column="description" property="description"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+    <!--客户映射结果-->
+    <resultMap id="CustomerResultMap" type="com.ckf.crm.entity.customerEntity.Customer">
+        <id column="customer_id" property="customerId"/>
+        <result column="customer_name" property="customerName"/>
+        <result column="sex" property="sex"/>
+        <result column="phone" property="phone"/>
+        <result column="company" property="company"/>
+        <result column="address" property="address"/>
+        <result column="is_orders" property="isOrders"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+     select
+        orders.orders_id,orders.total_price,business.business_id,b_name,customer.customer_id,customer.customer_name,customer.phone,customer.address,
+        orders.create_time,orders.update_time,orders.is_del
+        from orders
+        left join ord_bus_cus on ord_bus_cus.ord_id=orders.orders_id
+        left join business on business.business_id=ord_bus_cus.bus_id
+        left join customer on customer.customer_id=ord_bus_cus.cus_id
+        where  orders.is_del=0
+    </sql>
+
+    <!--全查询订单信息-->
+    <select id="selectOrdersList" resultMap="OrdersResultMap">
+        <include refid="Base_Column_List"/>
+
+    </select>
+
+</mapper>

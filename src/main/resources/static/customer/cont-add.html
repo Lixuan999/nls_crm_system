@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+
+<head>
+    <meta charset="UTF-8">
+    <title>添加客户跟踪信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/this-locality.css">
+    <link rel="stylesheet" href="/static/css/message.css">
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/js/xadmin.js"></script>
+    <script type="text/javascript" src="/static/js/message.js"></script>
+</head>
+
+<body>
+<div class="layui-fluid">
+    <div class="layui-row">
+
+        <form class="layui-form">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label ">
+                    <span class="x-red">*</span>联系途径
+                </label>
+                <div class="layui-input-inline" style="width: 300px">
+                    <input type="text" name="way" required="" autocomplete="off" lay-verify="required"
+                           class="layui-input way">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label ">
+                    <span class="x-red">*</span>聊天内容
+                </label>
+                <div class="layui-input-inline" style="width: 300px">
+                    <input type="text" name="content" required="" autocomplete="off" lay-verify="required"
+                           class="layui-input content">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>负责人
+                </label>
+                <div class="layui-input-block" style="width: 300px">
+                    <select name="empId" id="empName" lay-verify="required" lay-search>
+                        <option value=""></option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>客户名称
+                </label>
+                <div class="layui-input-block" style="width: 300px">
+                    <select name="cusId" id="customerName" lay-verify="required" lay-search>
+                        <option value=""></option>
+
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-filter="add" lay-submit="">
+                        提交
+                    </button>
+                    <button type="reset" class="layui-btn layui-btn-normal">重置</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="/customer/js/contact-list.js"></script>
+<script type="text/javascript" src="/customer/js/cont-add.js"></script>
+
+</body>
+
+</html>

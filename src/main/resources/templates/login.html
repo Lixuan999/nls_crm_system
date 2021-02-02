@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link href="/static/lib/layui/css/layui.css"/>
+    <link type="text/css" href="/static/css/font-awesome.min.css" rel="stylesheet"/>
+    <link type="text/css" href="/static/css/ace.min.css" rel="stylesheet"/>
+    <link type="text/css" href="/static/css/ace-rtl.min.css" rel="stylesheet"/>
+    <link type="text/css" href="/static/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/css/xadmin.css">
+    <link rel="stylesheet" href="/static/lib/layui/css/layui.css">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/xadmin.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/static/css/message.css">
+    <link type="text/css" href="/static/lib/layui/css/layui.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/static/lib/layui/layui.js" charset="utf-8"></script>
+
+    <style type="text/css">
+        canvas {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+
+<body class="login-layout">
+<canvas id="screen"></canvas>
+
+<div class="main-container">
+    <div class="main-content">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="login-container">
+                    <div class="center">
+                        <h1>
+                            <i class="icon-leaf green"></i>
+                            <span class="red">Staff</span>
+                            <span class="white">Login</span>
+                        </h1>
+                        <h4 class="blue">&copy; 怀化学院</h4>
+                    </div>
+
+                    <div class="space-6"></div>
+
+                    <div class="position-relative">
+                        <div id="login-box" class="login-box visible widget-box no-border">
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <h4 class="header blue lighter bigger">
+                                        <i class="icon-coffee green"></i>
+                                        请输入您的信息
+                                    </h4>
+
+                                    <div class="space-6"></div>
+
+                                    <form>
+                                        <fieldset>
+                                            <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" id="name" class="form-control"
+                                                                   placeholder="请输入用户名"/>
+															<i class="icon-user"></i>
+														</span>
+                                            </label>
+
+                                            <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" id="password"
+                                                                   placeholder="请输入密码"/>
+															<i class="icon-lock"></i>
+														</span>
+                                            </label>
+
+                                            <div class="space"></div>
+
+                                            <div class="clearfix">
+                                                <label class="inline">
+                                                    <input type="checkbox" class="ace"/>
+                                                    <span class="lbl">记住</span>
+                                                </label>
+
+                                                <button type="button" id="submit_admin"
+                                                        class="width-35 pull-right btn btn-sm btn-primary">
+                                                    <i class="icon-key"></i>
+                                                    登录
+                                                </button>
+                                            </div>
+
+                                            <div class="space-4"></div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <!-- /widget-main -->
+
+                                <div class="toolbar clearfix">
+                                    <div>
+                                        <a href="#" id="slipPssword" class="forgot-password-link">
+                                            <i class="icon-arrow-left"></i> 我忘记密码了
+                                        </a>
+                                    </div>
+
+                                    <div>
+                                        <a href="#" onclick="show_box('signup-box'); return false;"
+                                           class="user-signup-link">
+                                            我想注册
+                                            <i class="icon-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /widget-body -->
+                        </div>
+                        <!-- /login-box -->
+
+                        <div id="forgot-box" class="forgot-box widget-box no-border">
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <h4 class="header red lighter bigger">
+                                        <i class="icon-key"></i>
+                                        找回密码
+                                    </h4>
+
+                                    <div class="space-6"></div>
+                                    <p>
+                                        输入您的电子邮件和接收指示
+                                    </p>
+
+                                    <form>
+                                        <fieldset>
+                                            <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="email" class="form-control"
+                                                                   placeholder="Email"/>
+															<i class="icon-envelope"></i>
+														</span>
+                                            </label>
+
+                                            <div class="clearfix">
+                                                <button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+                                                    <i class="icon-lightbulb"></i>
+                                                    收件人
+                                                </button>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <!-- /widget-main -->
+
+                                <div class="toolbar center">
+                                    <a href="#" onclick="show_box('login-box'); return false;"
+                                       class="back-to-login-link">
+                                        重新登录
+                                        <i class="icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /widget-body -->
+                        </div>
+                        <!-- /forgot-box -->
+
+                        <div id="signup-box" class="signup-box widget-box no-border">
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <h4 class="header green lighter bigger">
+                                        <i class="icon-group blue"></i>
+                                        新用户注册
+                                    </h4>
+
+                                    <div class="space-6"></div>
+                                    <p> 输入您的详细信息开始: </p>
+
+                                    <form>
+                                        <fieldset>
+                                            <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" id="r_username" class="form-control"
+                                                                   placeholder="请输入用户名" maxlength="10"/>
+															<i class="icon-user"></i>
+														</span>
+                                            </label>
+
+                                            <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" id="r_phone" class="form-control"
+                                                                   placeholder="请输入电话" maxlength="11"/>
+															<i class="icon-user"></i>
+														</span>
+                                            </label>
+
+                                            <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" id="r_password" class="form-control"
+                                                                   placeholder="请输入密码"/>
+															<i class="icon-lock"></i>
+														</span>
+                                            </label>
+
+                                            <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" id="affirm_Password"
+                                                                   class="form-control" placeholder="请再次输入密码"
+                                                                   maxlength="18"/>
+															<i class="icon-retweet"></i>
+														</span>
+                                            </label>
+
+                                            <div class="space-24"></div>
+
+                                            <div class="clearfix">
+                                                <button type="reset" class="width-30 pull-left btn btn-sm">
+                                                    <i class="icon-refresh"></i>
+                                                    重置
+                                                </button>
+
+                                                <button type="button" id="register_zc"
+                                                        class="width-65 pull-right btn btn-sm btn-success">
+                                                    注册
+                                                    <i class="icon-arrow-right icon-on-right"></i>
+                                                </button>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+
+                                <div class="toolbar center">
+                                    <a href="#" onclick="show_box('login-box'); return false;"
+                                       class="back-to-login-link">
+                                        <i class="icon-arrow-left"></i> 重新登录
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/lib/layui/layui.js"></script>
+<script src="/static/lib/layui/layui.all.js"></script>
+<script src="/static/js/login.js"></script>
+<script src="/static/js/message.js"></script>
+
+
+<script type="text/javascript">
+
+    $(function () {
+
+        /********************异步登录开始**********************/
+        $(document).on("click", "#submit_admin", function () {
+
+
+            if ($("#name").val() == '') {
+                layer.msg("用户名不能为空 ！", {icon: 5})
+                return false;
+            }
+
+            if ($("#password").val() == '') {
+                layer.msg("密码不能为空 ！", {icon: 5})
+                return false;
+            }
+            var layerIndex = layer.load(3);
+
+            $.ajax({
+                url: "/doLogin",
+                type: "POST",
+                data: {
+                    userName: $("#name").val(),
+                    password: $("#password").val()
+                },
+                success: function (data) {
+                    console.log(data.code)
+                    if (data.nameNonentity == 404) {
+                        layer.msg("账号不存在 ！", {icon: 5, time: 3000});
+                    }
+
+                    if (data.wrongPassword == 100) {
+                        layer.msg("密码输入错误 ！", {icon: 5, time: 3000});
+                    }
+
+                    if (data.code == 200) {
+                        console.log("登录成功" + data)    //打印
+                        $.message({
+                            message: '登录成功',
+                            type: 'success',
+                            showClose: true
+                        });
+                        setTimeout(function () {
+                            window.location = "/index";
+                        }, 2000);
+
+                        return false;
+                    }
+
+                    /* if (data.code == 100) {
+                         layer.msg("用户名或密码错误！", {icon: 2, shift: 5, time: 1800});
+                     }*/
+                },
+                error: function () {
+                    $.message({
+                        message: "系统匆忙，请销后再试 !",
+                        type: 'warning',
+                        showClose: true
+                    });
+                }
+            });
+            layer.close(layerIndex);
+        })
+        /************************异步登录结束*****************************/
+
+        $("#slipPssword").click(function () {
+            $.message({
+                message: "请联系管理员哦 !",
+                type: 'warning',
+                showClose: true
+            });
+        })
+
+
+        /*********************执行异步注册开始**************************/
+        $("#register_zc").click(function () {
+            if ($("#r_username").val() == '') {
+                layer.msg("用户名不能为空 !", {icon: 5})
+                return false;
+            }
+
+            if ($('#r_phone').val() == '') {
+                layer.msg("电话不能为空 ！", {icon: 5})
+                return false;
+            } else {
+                var pattern = /^1[2345789]\d{9}$/;
+                if (!pattern.test($('#r_phone').val())) {
+                    layer.msg("号码格式不正确 ！", {icon: 5})
+                    return false;
+                }
+
+            }
+
+            if ($("#r_password").val() == '') {
+                layer.msg("密码不能为空 !", {icon: 5})
+                return false;
+            }
+
+            if ($("#affirm_Password").val() == '') {
+                layer.msg("确认密码不能为空 !", {icon: 5})
+                return false;
+            }
+
+            if ($("#r_password").val() != $("#affirm_Password").val()) {
+                layer.msg("新密码没有确认密码一致 ！", {icon: 5})
+                return false;
+            }
+
+            $.ajax({
+                url: "/empRegister",
+                type: "POST",
+                data: {
+                    empName: $("#r_username").val(),
+                    ePwd: $("#r_password").val(),
+                    phone: $("#r_phone").val()
+
+                },
+                success: function (data) {
+                    if (data.code === 101) {
+                        layer.msg("相同用户名已存在 ！", {icon: 5})
+                        return false;
+                    }
+
+                    if (data.code == 200) {
+                        console.log(data)
+                        $.message({
+                            message: '操作成功',
+                            type: 'success',
+                            showClose: true
+                        });
+                        setTimeout(function () {
+                            window.parent.location.reload();
+                        }, 3000);
+
+                    }
+                },
+                error: function () {
+                    $.message({
+                        message: "系统匆忙，请销后再试 !",
+                        type: 'warning',
+                        showClose: true
+                    });
+                }
+            });
+        })
+        /***************执行异步注册结束***************/
+
+
+    })
+</script>
+
+
+<!--登录js-->
+<script type="text/javascript">
+    function show_box(id) {
+        jQuery('.widget-box.visible').removeClass('visible');
+        jQuery('#' + id).addClass('visible');
+    }
+</script>
+
+
+</html>

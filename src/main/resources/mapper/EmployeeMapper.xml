@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ckf.crm.mapper.EmployeeMapper">
+
+    <!-- 员工映射结果 -->
+    <resultMap id="EmployeeResult" type="com.ckf.crm.entity.Employee">
+        <id column="employee_id" property="employeeId"/>
+        <result column="emp_name" property="empName"/>
+        <result column="e_pwd" property="ePwd"/>
+        <result column="salt" property="salt"/>
+        <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
+        <result column="phone" property="phone"/>
+        <result column="address" property="address"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+        <collection property="roleList" javaType="java.util.List" resultMap="RoleResult"/>
+    </resultMap>
+
+    <!-- 角色映射结果 -->
+    <resultMap id="RoleResult" type="com.ckf.crm.entity.Role">
+        <id column="rol_id" property="rolId"/>
+        <result column="r_name" property="rName"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+        <collection property="permissionList" javaType="java.util.List" resultMap="PermissionResult"/>
+        <collection property="departmentList" javaType="java.util.List" resultMap="DepartmentResult"/>
+    </resultMap>
+
+    <!-- 权限映射结果 -->
+    <resultMap id="PermissionResult" type="com.ckf.crm.entity.Permission">
+        <id column="permission_id" property="permissionId"/>
+        <result column="perm_name" property="permName"/>
+        <result column="permission" property="permission"/>
+        <result column="url" property="url"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+    <!-- 部门映射结果 -->
+    <resultMap id="DepartmentResult" type="com.ckf.crm.entity.Department">
+        <id column="department_id" property="departmentId"/>
+        <result column="d_name" property="dName"/>
+        <result column="d_manager" property="dManager"/>
+        <result column="d_population" property="dPopulation"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        select distinct
+        employee.employee_id,emp_name,e_pwd,salt,age,sex,phone,address,employee.create_time,employee.update_time,employee.is_del,
+        role.rol_id,r_name,department.department_id,d_name
+        from employee
+        left join emp_role on emp_role.emp_id = employee.employee_id
+        left join role on role.rol_id = emp_role.role_id
+        left join dept_role on dept_role.role_id = role.rol_id
+        left join department on department.department_id = dept_role.dep_id
+        group by employee_id
+    </sql>
+
+
+    <!--全查询-->
+    <select id="selectList" resultMap="EmployeeResult">
+        <include refid="Base_Column_List"/>
+
+    </select>
+
+    <!--查询管理员信息-->
+    <select id="selectAdmin" resultMap="EmployeeResult" parameterType="java.lang.String">
+        select
+        emp_role.emp_id,emp_role.role_id,role.r_name,employee.employee_id,emp_name,age,sex,phone,address,employee.create_time,employee.update_time
+        from employee
+        left join emp_role on emp_role.emp_id = employee.employee_id
+        left join role on role.rol_id = emp_role.role_id
+        <where>
+            emp_role.role_id=1
+        </where>
+
+    </select>
+
+    <!--查询已删除的员工-->
+    <select id="selectEmployeeDel" resultMap="EmployeeResult">
+        select employee.employee_id,emp_name,e_pwd,salt,age,sex,phone,address,create_time,update_time,is_del
+        from employee
+        <where>
+            employee.is_del =1
+        </where>
+    </select>
+
+
+    <!--通过员工名字查询不同角色的权限  登陆查询-->
+    <select id="selectByUserName" resultMap="EmployeeResult" parameterType="String">
+
+        select distinct employee.employee_id, emp_name,e_pwd,
+        salt,age,sex,phone,address,employee.create_time,employee.update_time,employee.is_del,
+        role.rol_id,r_name,permission.permission_id,perm_name,
+        permission,url,department.department_id,d_name
+        from employee
+        left join emp_role on emp_role.emp_id = employee.employee_id
+        left join role on role.rol_id = emp_role.role_id
+        left join role_perm on role_perm.role_id = role.rol_id
+        left join permission on permission.permission_id = role_perm.perm_id
+        left join dept_role on dept_role.role_id=role.rol_id
+        left join department on department.department_id=dept_role.dep_id
+        <where>
+            emp_name = #{empName} and employee.is_del =0
+        </where>
+
+    </select>
+
+    <!--模糊查询员姓名-->
+    <select id="selectEmployeeNameLike" parameterType="java.lang.String" resultMap="EmployeeResult">
+        select * from employee,role,department
+        <where>
+            employee.emp_name like CONCAT ('%',#{empName},'%') and employee.is_del =0
+        </where>
+
+    </select>
+
+    <!--模糊查询删除员工-->
+    <select id="selectEmployeeNameLikeDel" parameterType="java.lang.String" resultMap="EmployeeResult">
+        select * from employee,role,department
+        <where>
+            employee.emp_name like CONCAT ('%',#{empName},'%') and employee.is_del =1
+        </where>
+
+    </select>
+
+    <!--查询前台 用户名是否存在-->
+    <select id="selectName" resultMap="EmployeeResult" parameterType="java.lang.String">
+        select employee.employee_id,emp_name,e_pwd,salt,age,sex,address from employee
+
+        <where>
+            emp_name = #{empName}
+        </where>
+
+    </select>
+
+
+    <!--注册-->
+       <insert id="register" parameterType="com.ckf.crm.entity.Employee" useGeneratedKeys="true">
+           insert into employee(emp_name,e_pwd,phone,create_time,update_time,is_del)
+           values(#{empName},#{ePwd},#{phone},#{createTime},#{updateTime},#{isDel})
+       </insert>
+
+    <!--修改密码-->
+    <update id="updatePassword" parameterType="com.ckf.crm.entity.Employee">
+        update employee
+        <set>
+            e_pwd=#{ePwd}
+        </set>
+
+        <where>
+            emp_name = #{empName}
+        </where>
+
+    </update>
+
+</mapper>

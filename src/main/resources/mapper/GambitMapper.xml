@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ckf.crm.mapper.GambitMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="GambitResultMap" type="com.ckf.crm.entity.Gambit">
+        <id column="gambit_id" property="gambitId"/>
+        <result column="g_headline" property="gHeadline"/>
+        <result column="g_auditor" property="gAuditor"/>
+        <result column="g_audi_time" property="gAudiTime"/>
+        <result column="g_founder" property="gFounder"/>
+        <result column="g_check_state" property="gCheckState"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        select gambit.gambit_id, g_headline, g_auditor, g_audi_time, g_founder, g_check_state, create_time, update_time,
+        is_del
+        from gambit
+    </sql>
+
+    <!--添加文章信息-->
+    <insert id="saveGambit" parameterType="com.ckf.crm.entity.Gambit" useGeneratedKeys="true">
+        insert into gambit(g_headline, g_auditor, g_audi_time, g_founder, g_check_state, create_time,
+        update_time,is_del)
+        values(#{gHeadline},#{gAuditor},#{gAudiTime},#{gFounder},#{gCheckState},#{createTime},#{updateTime},#{isDel})
+
+    </insert>
+
+    <!--全查询文章信息-->
+    <select id="selectGambitAll" resultMap="GambitResultMap">
+        <include refid="Base_Column_List"/>
+        /*where gambit.is_del =0*/
+    </select>
+
+
+    <!--模糊查询文章姓名-->
+    <select id="selectGambitName" parameterType="java.lang.String" resultMap="GambitResultMap">
+        <include refid="Base_Column_List"/>
+
+        <where>
+            gambit.g_founder like CONCAT ('%',#{gFounder},'%')
+        </where>
+
+
+    </select>
+
+
+</mapper>

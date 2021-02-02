@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+
+<head>
+    <meta charset="UTF-8">
+    <title>修改业务</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/this-locality.css">
+    <link rel="stylesheet" href="/static/css/message.css">
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/js/xadmin.js"></script>
+    <script type="text/javascript" src="/static/js/message.js"></script>
+
+</head>
+
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-row">
+
+        <form class="layui-form">
+            <input type="hidden" name="businessId" class="businessId">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>业务
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="bName" required="" autocomplete="off" lay-verify="required"
+                           class="layui-input bName">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>负责人
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="head" required="" autocomplete="off" lay-verify="required"
+                           class="layui-input head">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label ">
+                    <span class="x-red">*</span>电话号码
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="phone" maxlength="11" required="" autocomplete="off" lay-verify="phone"
+                           class="layui-input phone">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label ">
+                    <span class="x-red">*</span>描述
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="description" required="" autocomplete="off" lay-verify="required"
+                           class="layui-input description">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-filter="edit" lay-submit="">
+                       提交
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="/business/js/bus-list.js"></script>
+<script type="text/javascript" src="/business/js/bus-edit.js"></script>
+
+</body>
+
+</html>

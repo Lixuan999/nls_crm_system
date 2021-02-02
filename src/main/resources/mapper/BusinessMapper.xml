@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ckf.crm.mapper.businessMapper.BusinessMapper">
+
+    <!-- 业务查询映射结果 -->
+    <resultMap id="BusinessResultMap" type="com.ckf.crm.entity.businessEntity.Business">
+        <id column="business_id" property="businessId"/>
+        <result column="b_name" property="bName"/>
+        <result column="head" property="head"/>
+        <result column="phone" property="phone"/>
+        <result column="description" property="description"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        select business.business_id,b_name,head,phone,description,create_time,update_time,is_del from business
+        <where>
+            business.is_del=0
+        </where>
+    </sql>
+
+    <!--全查询业务信息-->
+    <select id="selectBusinessList" resultMap="BusinessResultMap">
+        <include refid="Base_Column_List"/>
+
+    </select>
+
+</mapper>

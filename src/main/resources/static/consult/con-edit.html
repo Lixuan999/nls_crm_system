@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+
+<head>
+    <meta charset="UTF-8">
+    <title>修改咨询</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/this-locality.css">
+    <link rel="stylesheet" href="/static/css/message.css">
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/js/xadmin.js"></script>
+    <script type="text/javascript"src="/static/js/message.js"></script>
+
+</head>
+
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-row">
+
+
+        <form class="layui-form">
+            <input type="hidden" name="cId" class="cId">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>咨询内容
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="cConsultContent" required="" autocomplete="off"
+                           lay-verify="required|cConsultContent"
+                           class="layui-input cConsultContent">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>姓名
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="cName" required="" autocomplete="off" lay-verify="required"
+                           class="layui-input cName">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label ">
+                    <span class="x-red">*</span>性别
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="cSex" required="" autocomplete="off" lay-verify="required"
+                           autocomplete="off"
+                           class="layui-input cSex">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>电话
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="cPhone" required="" autocomplete="off" lay-verify="required"
+                           class="layui-input cPhone">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <button class="layui-btn" lay-filter="edit" lay-submit="">
+                    保存
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="/consult/js/con-edit.js"></script>
+
+</body>
+
+</html>

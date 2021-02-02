@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ckf.crm.mapper.PermissionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="PermissionResultMap" type="com.ckf.crm.entity.Permission">
+        <id column="permission_id" property="permissionId"/>
+        <result column="perm_name" property="permName"/>
+        <result column="permission" property="permission"/>
+        <result column="url" property="url"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+        <collection property="roleList" javaType="java.util.List" resultMap="RoleResult"/>
+    </resultMap>
+
+    <resultMap id="RoleResult" type="com.ckf.crm.entity.Role">
+        <id column="rol_id" property="rolId"/>
+        <result column="r_name" property="rName"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        select distinct
+        permission.permission_id,perm_name,permission,url,role.rol_id,r_name,permission.create_time,permission.update_time,permission.is_del
+        from role
+        left join role_perm on role_perm.role_id = role.rol_id
+        left join permission on permission.permission_id = role_perm.perm_id
+
+    </sql>
+
+
+    <!--全查询权限信息-->
+    <select id="selectPermissionAll" resultMap="PermissionResultMap">
+        <include refid="Base_Column_List"/>
+
+    </select>
+
+    <!--查询权限url是否存在-->
+    <select id="selectPermissionUrl" resultMap="PermissionResultMap" parameterType="java.lang.String">
+        select permission.permission_id,perm_name,permission,url from permission
+
+        where url = #{url}
+
+    </select>
+
+
+    <!--模糊查询权限名称姓名-->
+    <select id="selectPermissionNameLike" parameterType="java.lang.String" resultMap="PermissionResultMap">
+        <include refid="Base_Column_List"/>
+
+        where permission.perm_name like CONCAT ('%',#{permName},'%')
+
+
+    </select>
+
+</mapper>

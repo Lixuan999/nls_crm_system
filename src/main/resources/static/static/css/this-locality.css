@@ -1,0 +1,29 @@
+.layui-table-view {
+    margin-top: -10px;
+    margin-left: 5px;
+}
+.childrenBody{
+    margin-left: 5px;
+}
+.layui-breadcrumb {
+    font-size: 0;
+    margin-left: 16px;
+}
+
+.x-nav {
+    line-height: 38px;
+    height: 36px;
+    background-color: white;
+}
+
+.layui-breadcrumb > * {
+    font-size: 12px;
+}
+
+.refresh {
+    margin-top: 10px;
+}
+
+.layui-elem-quote {
+    margin-left: -10px;
+}

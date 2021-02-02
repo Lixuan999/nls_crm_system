@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>咨询管理</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/zx.css">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/message.css">
+    <!--<link rel="stylesheet" href="/static/css/xadmin.css">-->
+
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/xadmin.js"></script>
+    <script type="text/javascript" src="/static/js/message.js"></script>
+
+    <style>
+
+        .layui-table-view {
+            margin-top: -10px;
+            margin-left: 5px;
+        }
+
+        .x-nav {
+            line-height: 38px;
+            height: 36px;
+
+        }
+
+        /*********背景图**********/
+        .wantConsult_btm_left {
+            width: 246px;
+            padding-left: 35px;
+            height: 450px;
+            background: url('/static/image/sixpage1_21.png') no-repeat;
+        }
+
+        .wantConsult_btm_left ul li i {
+            background: url('/static/image/xuhao.png') no-repeat;
+            margin: 10px 7px 0 0;
+        }
+
+        .wantConsult_btm_right {
+            width: 919px;
+            height: 450px;
+            background: url('/static/image/sixpage2.png') no-repeat;
+        }
+
+        /**********咨询按钮*************/
+        .sub_ziXun {
+            width: 200px;
+            height: 50px;
+            background-color: #d43f3a;
+            border-radius: 8px;
+            font-size: 19px;
+            line-height: 50px;
+            margin: 28px 165px 20px auto;
+            list-style-type: none;
+        }
+
+        .sub_ziXun a {
+            color: white;
+
+        }
+
+        /*********把字体变粗**************/
+        .leftsidebar_box dt {
+            font-weight: 800;
+
+        }
+
+        .leftsidebar_box dd a {
+            color: #333;
+            line-height: 42px;
+            width: 100%;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /*调节咨询模板左右的距离*/
+        .wantConsult {
+            margin-top: 32px;
+            margin-left: -5px;
+        }
+
+        /*调节输入框的大小*/
+        .wantConsult_btm_right .form textarea {
+            width: 488px;
+            margin-top: 42px;
+
+        }
+
+        /*********把字体变粗**************/
+    </style>
+
+</head>
+<body>
+
+<!-- 我要咨询 -->
+<div class="wantConsult">
+    <div class="wrap_mar">
+
+        <div class="zxTitle clear">
+            <p class="fl1 p1">我要咨询</p>
+            <p class="fr1 p2"><i class="i14 fl1"><img src="/static/image/zx1.png" alt=""></i><span
+                    class="fl1">全国免费电话</span><i class="fl1 i15"><img src="/static/image/zx2.png" alt=""></i></p>
+        </div>
+
+        <div class="wantConsult_btm clear">
+            <div class="wantConsult_btm_left fl1">
+                <p class="sixPage">加盟六步法</p>
+
+                <ul>
+                    <li class="clear"><i class="fl1 i16"></i><span class="fl1">直营店考察</span>
+                        <font class="fl1">(具备可经营性)</font>
+                    </li>
+                    <li class="clear"><i class="fl1 i17"></i><span class="fl1">加盟店考察</span>
+                        <font class="fl1">(具备可复制性)</font>
+                    </li>
+                    <li class="clear"><i class="fl1 i18"></i><span class="fl1">店面选址方式</span></li>
+                    <li class="clear"><i class="fl1 i19"></i><span class="fl1">总部培训方式</span></li>
+                    <li class="clear"><i class="fl1 i20"></i><span class="fl1">运营督导方式</span></li>
+                    <li class="clear"><i class="fl1 i21"></i><span class="fl1">产品研发能力</span></li>
+                </ul>
+
+                <p class="chanQuan">中国加盟网已获知识产权<br> 登记号：国作登字-2018-A-8888888888
+                </p>
+            </div>
+
+            <div class="wantConsult_btm_right fr1">
+
+                <form action="" class="form fl1">
+
+                    <textarea name="content" id="c_consult_content" cols="30" rows="10"
+                              placeholder="请输入或选择咨询内容"></textarea>
+
+                    <p class="input_p clear"><span class="span1 fl1" style="letter-spacing:10px;">姓名</span>
+                        <input type="text" id="c_name" maxlength="5" placeholder="请输入您的姓名" class="txt">
+
+                        <font class="fr1" value="c_sex">性别
+                            <span class="radio_box">
+           <input value="男" type="radio" id="man" name="radio" checked>
+             <label for="man"></label>
+                <em>男</em>
+           </span>
+
+                            <span class="radio_box">
+                <input value="女" type="radio" id="woman" name="radio">
+                <label for="woman"></label>
+                <em>女</em>
+             </span>
+                        </font>
+                    </p>
+
+                    <p class="input_p clear">
+                        <span class="span1 fl1" style="letter-spacing:10px;">手机</span>
+                        <input type="text" name="mobile" id="c_phone" maxlength="11" placeholder="请输入您的手机" class="txt">
+                    </p>
+
+                    <p class="sub_ziXun">
+                        <a class="zx_buttom" href="javaScript:;" id="zx_submit">提交咨询</a>
+                    </p>
+
+                </form>
+
+                <div class="select_yixiang fr1">
+                    <p class="jiao"></p>
+                    <p class="ninTitle">您可以根据意向选择下列 <em>[快捷留言]</em></p>
+
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" title="项目很好，请尽快联系我详谈。">项目很好，请尽快联系我详谈。</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="请问我所在的地区有加盟商了吗？">请问我所在的地区有加盟商了吗？</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="留下邮箱，请将详细资料邮件给我。">留下邮箱，请将详细资料邮件给我。</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="想了解的加盟流程，请与我联系！">想了解的加盟流程，请与我联系！</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="做为的代理加盟商能得到哪些支持？">做为的代理加盟商能得到哪些支持？</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="请问投资所需要的费用有哪些？">请问投资所需要的费用有哪些？</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="我想加盟，请电话联系我。">我想加盟，请电话联系我。</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" title="加盟，有什么优惠？">加盟，有什么优惠？</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/public.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/layui/layui.js"></script>
+<script src="/static/layui/layui.all.js"></script>
+<script type="/static/js/public.js"></script>
+
+<script type="text/javascript" src="/consult/js/consult.js"></script>
+
+<script>
+
+</script>
+</body>
+</html>
