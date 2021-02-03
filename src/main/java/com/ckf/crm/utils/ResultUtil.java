@@ -5,7 +5,7 @@ import com.ckf.crm.model.ResultFormat;
 /**
  * @author xuan
  * @version 1.0
- * @date 2020/2/17 14:53
+ * @date 2021/1/17 14:53
  * 统一返回工具类
  */
 public class ResultUtil {

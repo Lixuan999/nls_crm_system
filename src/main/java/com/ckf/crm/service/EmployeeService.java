@@ -80,10 +80,11 @@ public interface EmployeeService extends IService<Employee> {
 
     /**
      * 条件查询员工
+     *
      * @param employee
      * @return
      */
-    public Employee queryRoleInfo(Employee employee);
+    Employee queryRoleInfo(Employee employee);
 
 
     /**
@@ -121,7 +122,7 @@ public interface EmployeeService extends IService<Employee> {
      * @param employee
      * @return
      */
-    public Employee queryUserInfo(Employee employee);
+    Employee queryUserInfo(Employee employee);
 
     /**
      * 修改密码

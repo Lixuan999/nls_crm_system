@@ -23,9 +23,18 @@
         <input type="text" value="" name="employeeId" class="layui-input layui-hide employeeId">
 
         <div class="layui-form-item">
+            <label class="layui-form-label">用户昵称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input accountName" name="accountName"
+                       maxlength="10" autocomplete="off"
+                       readonly="readonly">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
             <label class="layui-form-label">登录名</label>
             <div class="layui-input-block">
-                <input type="text" class="layui-input empName"  name="empName"
+                <input type="text" class="layui-input empName" name="empName"
                        placeholder="请输入登录名" maxlength="10"
                        autocomplete="off" readonly="readonly">
             </div>
@@ -38,6 +47,7 @@
                        maxlength="10" autocomplete="off" readonly="readonly">
             </div>
         </div>
+
 
         <div class="layui-form-item" pane="">
             <label class="layui-form-label">性别</label>
@@ -59,18 +69,17 @@
             <label class="layui-form-label">角色</label>
             <div class="layui-input-block">
                 <select name="roleId" id="rname" lay-verify="" lay-search>
-
                 </select>
             </div>
         </div>
 
-    <!--    <div class="layui-form-item">
-            <div class="layui-input-block">
-                <button class="layui-btn" lay-filter="edit" lay-submit="">
-                    提交
-                </button>
-            </div>
-        </div>-->
+        <!--    <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-filter="edit" lay-submit="">
+                        提交
+                    </button>
+                </div>
+            </div>-->
     </form>
 </div>
 
