@@ -2960,16 +2960,16 @@ output {
 }
 
 .form-control::-moz-placeholder {
-    color: #999;
+    color: #B7BAC9;
     opacity: 1
 }
 
 .form-control:-ms-input-placeholder {
-    color: #999
+    color: #B7BAC9
 }
 
 .form-control::-webkit-input-placeholder {
-    color: #999
+    color: #B7BAC9
 }
 
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
@@ -3467,8 +3467,8 @@ select[multiple].form-group-lg .form-control, textarea.form-group-lg .form-contr
 }
 
 .btn-primary.disabled, .btn-primary.disabled.active, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled], .btn-primary[disabled].active, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary.active, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
-    /*background-color: #337ab7;*/
-  /*  border-color: #2e6da4*/
+   /* background-color: #337ab7;
+    border-color: #2e6da4*/
 }
 
 .btn-primary .badge {

@@ -49,7 +49,7 @@ public class EmployeeServiceTest {
     @Test
     public void addEmployee() {
         Employee employee =
-                new Employee(null, "test", "123", "123", 18, "男", "13533", "天河", null);
+                new Employee(null,null, "test", "123", "123", 18, "男", "13533", "天河", null);
         employee.setCreateTime("2020-3-25");
         employee.setUpdateTime("2020-3-25");
         employee.setIsDel(0);
@@ -62,7 +62,7 @@ public class EmployeeServiceTest {
     @Test
     public void addEmployee1() {
         Employee employee =
-                new Employee(null, "陈克丰", "123", "123", 18, "男", "13533", "天河", null);
+                new Employee(null,null, "陈克丰", "123", "123", 18, "男", "13533", "天河", null);
         employeeService.addEmployee(employee, 2);
     }
 
@@ -73,7 +73,7 @@ public class EmployeeServiceTest {
     @Test
     public void updateEmployee() {
 
-        Employee employee = new Employee(2, "陈克丰", "123", "123", 18, "女", "13015866235", "广州天河", null);
+        Employee employee = new Employee(2,null, "陈克丰", "123", "123", 18, "女", "13015866235", "广州天河", null);
         employeeService.updateEmployee(employee, 1);
     }
 

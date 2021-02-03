@@ -23,10 +23,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("employee")
-public class Employee extends BaseEntity implements Serializable{
+public class Employee extends BaseEntity implements Serializable {
 
     @TableId(type = IdType.AUTO)
     private Integer employeeId;
+    private String accountName;
     private String empName;
     private String ePwd;
     private String salt;
@@ -43,7 +44,7 @@ public class Employee extends BaseEntity implements Serializable{
     }
 
     /**
-     *  一个用户具有多个角色
+     * 一个用户具有多个角色
      */
     @TableField(exist = false)
     private List<Role> roleList;

@@ -5877,7 +5877,7 @@ input[readonly]:focus {
 }
 
 .input-icon {
-    position: relative
+    position: relative;
 }
 
 span.input-icon {
@@ -10090,7 +10090,7 @@ td .lbl:only-child {
 
 .forgot-box .back-to-login-link,
 .signup-box .back-to-login-link {
-    color: #FE9;
+    color: #50616d;
     font-size: 14px;
     font-weight: bold;
     text-shadow: 1px 0 1px rgba(0, 0, 0, 0.25)
