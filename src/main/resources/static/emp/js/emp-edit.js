@@ -36,7 +36,7 @@ layui.config({
 
 
     /**
-     * 监听数据回显
+     * 员工修改监听数据回显
      */
     $.ajax({
         type: "POST",
@@ -49,6 +49,7 @@ layui.config({
             console.log(data)
             if (data.code == 200) {
                 $('.employeeId').val(data.data.employeeId);
+                $('.accountName').val(data.data.accountName);
                 $('.empName').val(data.data.empName);
                 $('.age').val(data.data.age);
                 $('.sex').val(data.data.sex);

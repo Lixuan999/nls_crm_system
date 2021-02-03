@@ -25,7 +25,7 @@ layui.config({
             , {field: 'sex', title: '性别', align: 'center'}
             , {field: 'age', title: '年龄', align: 'center'}
             , {field: 'phone', title: '手机', align: 'center'}
-            , {field: 'address', title: '地址', align: 'center'}
+            , {field: 'address', title: '居住地址', align: 'center'}
             , {
                 field: 'isDel', title: '状态', width: 100, align: 'center', templet: function (data) {
                     if (data.isDel == 0) {
@@ -259,8 +259,8 @@ layui.config({
 
     //编辑操作
     function editEmployee(data) {
-        var index = layui.layer.open({
-            title: "修改",
+        const index = layui.layer.open({
+            title: "员工信息修改",
             type: 2,
             content: "emp-edit.html?employeeId=" + data.employeeId,
             area: ['100%', '100%'],
@@ -367,7 +367,7 @@ $(function () {
                         , {field: 'sex', title: '性别', align: 'center'}
                         , {field: 'age', title: '年龄', align: 'center'}
                         , {field: 'phone', title: '手机', align: 'center'}
-                        , {field: 'address', title: '地址', align: 'center'}
+                        , {field: 'address', title: '居住地址', align: 'center'}
                         , {
                         field: 'isDel', title: '状态', width: 100, align: 'center', templet: function (data) {
                             if (data.isDel == 0) {

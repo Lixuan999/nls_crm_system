@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="x-admin-sm">
+<html class="x-admin-sm" xmlns:background-image="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -18,19 +18,29 @@
 </head>
 
 <body>
-
+<!--style="background-color: #f0f9ff"-->
 <div class="layui-fluid">
     <div class="layui-row">
 
-        <form class="layui-form">
+        <form class="layui-form" style="margin-top: 10px">
             <input type="hidden" name="employeeId" class="employeeId">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>昵称
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="accountName" required="" autocomplete="off"
+                           class="layui-input accountName">
+                </div>
+            </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">
                     <span class="x-red">*</span>员工姓名
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" name="empName" required="" readonly="readonly" autocomplete="off"
+                    <input type="text" name="empName" required="" lay-verify="required|empName" autocomplete="off"
                            class="layui-input empName">
                 </div>
             </div>
@@ -75,7 +85,7 @@
 
             <div class="layui-form-item">
                 <label class="layui-form-label ">
-                    <span class="x-red">*</span>地址
+                    <span class="x-red">*</span>居住地址
                 </label>
                 <div class="layui-input-inline">
                     <input type="text" name="address" required="" lay-verify="required|address" autocomplete="off"
