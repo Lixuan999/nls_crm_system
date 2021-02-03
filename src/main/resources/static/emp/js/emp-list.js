@@ -20,6 +20,7 @@ layui.config({
             //表头
             {type: 'checkbox', fixed: 'left'}
             , {type: 'numbers', title: '序号', align: 'center'}
+            , {field: 'accountName', title : '员工昵称',align: 'center'}
             , {field: 'empName', title: '员工姓名', align: 'center'}
             , {field: 'sex', title: '性别', align: 'center'}
             , {field: 'age', title: '年龄', align: 'center'}
@@ -361,6 +362,7 @@ $(function () {
                         //表头
                         {type: 'checkbox', fixed: 'left'}
                         , {field: 'employeeId', title: 'ID', align: 'center'}
+                        , {field: 'accountName', title: '员工昵称', align: 'center'}
                         , {field: 'empName', title: '员工姓名', align: 'center'}
                         , {field: 'sex', title: '性别', align: 'center'}
                         , {field: 'age', title: '年龄', align: 'center'}

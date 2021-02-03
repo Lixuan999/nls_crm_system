@@ -114,7 +114,7 @@ public class EmployeeController {
      * @return
      */
     @GetMapping("/adminList")
-    public Map<String, Object> SelectAdmin(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit) {
+    public Map<String, Object> selectAdmin(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit) {
 
         System.out.println("---------------进入查询管理员信息模式------------------");
 

@@ -55,7 +55,7 @@
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         select distinct
-        employee.employee_id,emp_name,e_pwd,salt,age,sex,phone,address,employee.create_time,employee.update_time,employee.is_del,
+        employee.employee_id,account_name,emp_name,e_pwd,salt,age,sex,phone,address,employee.create_time,employee.update_time,employee.is_del,
         role.rol_id,r_name,department.department_id,d_name
         from employee
         left join emp_role on emp_role.emp_id = employee.employee_id
