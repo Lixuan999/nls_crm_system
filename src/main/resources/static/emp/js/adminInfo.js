@@ -44,7 +44,7 @@ layui.config({
         datatype: "json",
         success: function (data) {
             console.log(data)
-            if (data.code == 200) {
+            if (data.code === 200) {
                 $('.employeeId').val(data.data.employeeId);
                 $('.accountName').val(data.data.accountName);
                 $('.empName').val(data.data.empName);

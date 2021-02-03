@@ -5,6 +5,7 @@
     <!-- 员工映射结果 -->
     <resultMap id="EmployeeResult" type="com.ckf.crm.entity.Employee">
         <id column="employee_id" property="employeeId"/>
+        <result column="account_name" property="accountName"/>
         <result column="emp_name" property="empName"/>
         <result column="e_pwd" property="ePwd"/>
         <result column="salt" property="salt"/>
@@ -134,7 +135,7 @@
 
     <!--查询前台 用户名是否存在-->
     <select id="selectName" resultMap="EmployeeResult" parameterType="java.lang.String">
-        select employee.employee_id,emp_name,e_pwd,salt,age,sex,address from employee
+        select employee.employee_id,account_name,emp_name,e_pwd,salt,age,sex,address from employee
 
         <where>
             emp_name = #{empName}

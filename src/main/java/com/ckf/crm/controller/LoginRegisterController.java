@@ -52,27 +52,30 @@ public class LoginRegisterController {
     @ApiOperation("用户登录接口")
     @PostMapping("/doLogin")
     public Map<String, Object> empLogin(String userName, String password, HttpSession session) {
-        System.out.println("----------------进入controller 登录模式--------------");
 
-        QueryWrapper<Employee> queryWrapper = new QueryWrapper<>();
-
-        //column 数据库的字段值
-        queryWrapper.eq("emp_name", userName);
-        queryWrapper.eq("e_pwd", password);
-
-        System.out.println("用户名--" + userName);
-        System.out.println("密码--" + password);
 
         Subject subject = SecurityUtils.getSubject();
+
         UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
 
+        //将用户信息存入session里面
         try {
             subject.login(token);
-            session.setAttribute("userName", userName);
-            System.out.println("对象--" + employee);
 
-            employee.setUpdateTime(TimeUtils.dateTime());
-            employeeService.updateById(employee);
+            Employee employee = employeeService.selectName(userName);
+
+            String accountName = employee.getAccountName();
+
+            //如果该用户有昵称则显示昵称，否则显示yo
+            if (!accountName.isEmpty()) {
+                session.setAttribute("accountName", accountName);
+            } else {
+                session.setAttribute("accountName", userName);
+            }
+
+
+            this.employee.setUpdateTime(TimeUtils.dateTime());
+            employeeService.updateById(this.employee);
             map.put("code", 200);
             log.info("登录成功");
 
