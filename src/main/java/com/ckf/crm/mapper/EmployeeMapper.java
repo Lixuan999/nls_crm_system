@@ -38,11 +38,10 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
     /**
      * 根据员工姓名模糊查询
      *
-     * @param empName
+     * @param keyword 关键字
      * @return
      */
-    List<Employee> selectEmployeeNameLike(String empName);
-
+    List<Employee> selectEmployeeNameLike(@Param("keyword") String keyword);
 
     /**
      * 模糊查询已删除员工

@@ -119,7 +119,9 @@
     <select id="selectEmployeeNameLike" parameterType="java.lang.String" resultMap="EmployeeResult">
         select * from employee,role,department
         <where>
-            employee.emp_name like CONCAT ('%',#{empName},'%') and employee.is_del =0
+            employee.emp_name like CONCAT ('%',#{keyword},'%')
+            or employee.account_name like CONCAT ('%',#{keyword},'%')
+            and employee.is_del =0
         </where>
 
     </select>

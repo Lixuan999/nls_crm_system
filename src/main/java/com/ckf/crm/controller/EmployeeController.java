@@ -210,13 +210,14 @@ public class EmployeeController {
 
         System.out.println("-------------------进入模糊查询员工姓名模式------------------");
 
-        System.out.println(page + " -- " + limit);
+        //分页
         PageHelper.startPage(page, limit);
 
-        String eName = request.getParameter("nameSearch");
-        System.out.println("关键字:" + eName);
+        //拿到输入的关键字
+        String keyword = request.getParameter("nameSearch");
+        System.out.println("关键字:" + keyword);
 
-        List<Employee> list = employeeService.selectEmployeeNameLike(eName);
+        List<Employee> list = employeeService.selectEmployeeNameLike(keyword);
 
         if (list != null) {
             log.info("模糊查询成功");
