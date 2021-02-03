@@ -3245,7 +3245,7 @@ fieldset[disabled] .btn-default.active {
 
 .btn-primary,
 .btn-primary:focus {
-    background-color: #428bca!important;
+    background-color: #18BC9C!important;
     border-color: #428bca
 }
 
@@ -3288,7 +3288,7 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    background-color: #428bca!important;
+    background-color: #18BC9C!important;
     border-color: #428bca
 }
 
@@ -3343,7 +3343,7 @@ fieldset[disabled] .btn-info.active {
 
 .btn-success,
 .btn-success:focus {
-    background-color: #87b87f!important;
+    background-color: #4b92be!important;
     border-color: #87b87f
 }
 
@@ -3358,7 +3358,7 @@ fieldset[disabled] .btn-info.active {
 }
 
 .btn-success.no-hover:hover {
-    background-color: #87b87f!important
+    background-color: #4b92be!important
 }
 
 .btn-success.active {
@@ -3386,7 +3386,7 @@ fieldset[disabled] .btn-success:active,
 .btn-success.disabled.active,
 .btn-success[disabled].active,
 fieldset[disabled] .btn-success.active {
-    background-color: #87b87f!important;
+    background-color: #4b92be!important;
     border-color: #87b87f
 }
 
@@ -8421,8 +8421,8 @@ td .lbl:only-child {
 }
 
 .header-color-blue2 {
-    background: #5090c1;
-    border-color: #5090c1
+    background: #f7f7f7;
+    border-color: #f7f7f7;
 }
 
 .header-color-blue2+.widget-body {
@@ -10000,9 +10000,10 @@ td .lbl:only-child {
     overflow: hidden;
     width: 100%;
     border-bottom: 0;
+    border-radius: 10px;
     box-shadow: none;
-    padding: 6px;
-    background-color: #394557;
+    padding: 10px;
+    background-color: #f7f7f7;
     -moz-transform: scale(0, 1) translate(-150px);
     -webkit-transform: scale(0, 1) translate(-150px);
     -o-transform: scale(0, 1) translate(-150px);
@@ -10047,8 +10048,8 @@ td .lbl:only-child {
 }
 
 .login-box .toolbar {
-    background: #5090c1;
-    border-top: 2px solid #597597
+    background: #f7f7f7;
+    border-top: 2px solid #f7f7f7;
 }
 
 .login-box .toolbar>div {
@@ -10076,14 +10077,14 @@ td .lbl:only-child {
 }
 
 .forgot-box .toolbar {
-    background: #c16050;
+    background: #f7f7f7;
     border-top: 2px solid #976559;
     padding: 9px 18px
 }
 
 .signup-box .toolbar {
-    background: #76b774;
-    border-top: 2px solid #759759;
+    background: #f7f7f7;
+    border-top: 2px solid #f7f7f7;
     padding: 9px 18px
 }
 
@@ -12978,7 +12979,7 @@ only screen and (min-resolution:144dpi) {
 }
 
 .tree .tree-folder .tree-folder-header:hover {
-    background-color: #f0f7fc
+    background-color: #f7f7f7
 }
 
 .tree .tree-folder .tree-folder-header .tree-folder-name,
@@ -13039,7 +13040,7 @@ only screen and (min-resolution:144dpi) {
 }
 
 .tree .tree-item:hover {
-    background-color: #f0f7fc
+    background-color: #f7f7f7
 }
 
 .tree .tree-item .tree-item-name {

@@ -23,15 +23,19 @@
             top: 0px;
             left: 0px;
         }
+
     </style>
 </head>
 
-<body class="login-layout">
+<body class="login-layout" style="background-image: linear-gradient(to top, #3c61f9,#3b0352)">
 <canvas id="screen"></canvas>
 
-<div class="main-container">
+
+<div class="main-container" >
     <div class="main-content">
         <div class="row">
+
+            <!--输入信息盒子-->
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="login-container">
                     <div class="center" style="margin-top: 40%">
@@ -39,16 +43,17 @@
                             <i class="fa-list-ul:before"></i>
                             <span class="white">农林水员工管理系统</span>
                         </h1>
-                        <h4 class="grey">&copy; 怀化学院</h4>
+                      <!--  <h4 class="white">&copy; 怀化学院</h4>-->
                     </div>
 
+                    <!--排列间隙-->
                     <div class="space-6"></div>
 
                     <div class="position-relative">
                         <div id="login-box" class="login-box visible widget-box no-border">
                             <div class="widget-body">
                                 <div class="widget-main">
-                                    <h4 class="header blue lighter bigger">
+                                    <h4 class="header lighter bigger" style="color: #50616d">
                                         <i class="fa-sun-o:before"> </i>
                                         请输入您的信息
                                     </h4>
@@ -58,17 +63,18 @@
                                     <form>
                                         <fieldset>
                                             <label class="block clearfix">
-                                                <i class="fa-user-secret"></i>
+
                                                 <span class="block input-icon input-icon-right">
-                                                    <input type="text" id="name" class="form-control"
-                                                           placeholder="请输入用户名"/>
+                                                    <input type="text" id="name" class="form-control" style="color: #BEBACC"
+                                                           placeholder="登录名称"/>
+                                                     <i class="icon-user"></i>
                                                 </span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" id="password"
-                                                                   placeholder="请输入密码"/>
+															<input type="password" class="form-control" id="password" style="color: #BEBACC"
+                                                                   placeholder="密码"/>
 															<i class="icon-lock"></i>
 														</span>
                                             </label>
@@ -76,13 +82,9 @@
                                             <div class="space"></div>
 
                                             <div class="clearfix">
-                                                <label class="inline">
-                                                    <input type="checkbox" class="ace"/>
-                                                    <span class="lbl">记住</span>
-                                                </label>
 
                                                 <button type="button" id="submit_admin"
-                                                        class="width-35 pull-right btn btn-sm btn-primary">
+                                                        class="width-100 pull-right btn btn-sm btn-primary" >
                                                     <i class="icon-key"></i>
                                                     登录
                                                 </button>
@@ -96,14 +98,14 @@
 
                                 <div class="toolbar clearfix">
                                     <div>
-                                        <a href="#" id="slipPssword" class="forgot-password-link" style="color: white">
+                                        <a href="#" id="slipPssword" class="forgot-password-link" style="color: #50616d">
                                             忘记密码
                                         </a>
                                     </div>
 
                                     <div>
                                         <a href="#" onclick="show_box('signup-box'); return false;"
-                                           class="user-signup-link" style="color: white">
+                                           class="user-signup-link" style="color: #50616d">
                                             我想注册
                                             <i class="icon-arrow-right"></i>
                                         </a>
@@ -117,7 +119,7 @@
                         <div id="forgot-box" class="forgot-box widget-box no-border">
                             <div class="widget-body">
                                 <div class="widget-main">
-                                    <h4 class="header red lighter bigger">
+                                    <h4 class="header lighter bigger" style="color: #50616d">
                                         <i class="icon-key"></i>
                                         找回密码
                                     </h4>
@@ -163,13 +165,10 @@
                         <div id="signup-box" class="signup-box widget-box no-border">
                             <div class="widget-body">
                                 <div class="widget-main">
-                                    <h4 class="header green lighter bigger">
+                                    <h4 class="header blue lighter bigger">
                                         <i class="icon-group blue"></i>
                                         新用户注册
                                     </h4>
-
-                                    <div class="space-6"></div>
-                                    <p> 输入您的详细信息开始: </p>
 
                                     <form>
                                         <fieldset>

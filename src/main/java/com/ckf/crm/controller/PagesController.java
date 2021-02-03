@@ -47,7 +47,7 @@ public class PagesController {
     }
 
 
-    @GetMapping("/cut")
+    @GetMapping("/logout")
     public String noRights() {
         return "login";
     }

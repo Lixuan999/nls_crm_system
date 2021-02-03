@@ -69,8 +69,6 @@ public class ShiroConfig {
         map.put("/static/lib/layui/**", "anon");
         map.put("/static/layui/**", "anon");
 
-        //配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了
-        map.put("/logout", "logout");
 
         /**给url设置权限  perms
          * user：必须拥有 记住我 功能才能用
