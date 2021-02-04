@@ -1873,7 +1873,7 @@ a cite {
 
 .layui-btn-primary {
     border: 1px solid #ffffff;
-    background-color: #33cabb;
+    background-color: #3ea5fa;
     color: #ffffff
 }
 
@@ -1883,7 +1883,7 @@ a cite {
 }
 
 .layui-btn-normal {
-    background-color: #33cabb;
+    background-color: #3ea5fa;
 }
 
 .layui-btn-warm {
@@ -2730,7 +2730,7 @@ a cite {
     padding: 1px;
     width: 100%;
     height: 100%;
-    background-color: #33cabb
+    background-color: #3EA5FA
 }
 
 .layui-laypage-em {
