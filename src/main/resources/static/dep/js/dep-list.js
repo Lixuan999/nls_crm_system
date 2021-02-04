@@ -25,7 +25,7 @@ layui.config({
             {type: 'checkbox', fixed: 'left'}
             , {field: 'departmentId', title: 'ID', align: 'center'}
             , {field: 'dname', title: '部门名称', align: 'center'}
-            , {field: 'dmanager', title: '部门经理', align: 'center'}
+            , {field: 'dmanager', title: '部门领导', align: 'center'}
             , {field: 'dpopulation', title: '部门人数', align: 'center'}
             , {field: 'rname', templet: '<div>{{d.roleList[0].rname}}</div>', title: '角色', align: 'center',}
             , {field: 'createTime', title: '创建时间', align: 'center'}
@@ -372,7 +372,7 @@ $(function () {
                         {type: 'checkbox', fixed: 'left'}
                         , {field: 'departmentId', title: 'ID', align: 'center'}
                         , {field: 'dname', title: '部门名称', align: 'center'}
-                        , {field: 'dmanager', title: '部门经理', align: 'center'}
+                        , {field: 'dmanager', title: '部门领导', align: 'center'}
                         , {field: 'dpopulation', title: '部门人数', align: 'center'}
                         , {
                         field: 'rname',

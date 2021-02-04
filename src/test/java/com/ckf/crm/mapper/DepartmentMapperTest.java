@@ -44,7 +44,7 @@ public class DepartmentMapperTest {
 
 
     /**
-     * 模糊查询部门经理
+     * 模糊查询部门领导
      */
     @Test
     public void selectDepartmentName() {

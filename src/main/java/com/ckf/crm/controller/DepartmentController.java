@@ -122,19 +122,19 @@ public class DepartmentController {
     }
 
     /**
-     * 模糊查询部门经理姓名
+     * 模糊查询部门领导姓名
      *
      * @param page
      * @param limit
      * @param request
      * @return
      */
-    @ApiOperation(value = "模糊查询部门经理姓名接口")
+    @ApiOperation(value = "模糊查询部门领导姓名接口")
     @GetMapping("/depSearchName")
     @ResponseBody
     public Map<String, Object> searchName(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit, HttpServletRequest request) {
 
-        System.out.println("-------------------进入模糊查询部门经理姓名模式------------------");
+        System.out.println("-------------------进入模糊查询部门领导姓名模式------------------");
 
         System.out.println(page + " -- " + limit);
         PageHelper.startPage(page, limit);

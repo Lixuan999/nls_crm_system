@@ -221,13 +221,13 @@ body {
 .left-nav a:hover {
     background: #424242 !important;
     color: #fff;
-    border-color: #04564e !important;
+    border-color: #3EA5FA !important;
 }
 
 .left-nav a.active {
     background: #424242 !important;
     color: #fff;
-    border-color: #04564e !important;
+    border-color: #3EA5FA !important;
 }
 
 .left-nav #nav li a cite {

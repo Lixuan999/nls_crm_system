@@ -36,6 +36,8 @@ public class Department extends BaseEntity implements Serializable{
 
     private Integer dPopulation;
 
+    private String dRemark;
+
     /**
      * 一个部门属于多个角色
      */

@@ -18,7 +18,7 @@ public interface DepartmentMapper extends BaseMapper<Department> {
     List<Department> selectDepartmentAll();
 
     /**
-     * 模糊查询部门经理
+     * 模糊查询部门领导
      *
      * @param dName
      * @return
