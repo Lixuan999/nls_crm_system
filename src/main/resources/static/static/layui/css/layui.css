@@ -3900,7 +3900,7 @@ body .layui-table-tips .layui-layer-content {
 
 .layui-tab-title li .layui-tab-close:hover {
     border-radius: 2px;
-    background-color: #FF5722;
+    background-color: #ff8482;
     color: #fff
 }
 
@@ -4022,7 +4022,7 @@ body .layui-table-tips .layui-layer-content {
     padding: 0 6px;
     font-size: 12px;
     text-align: center;
-    background-color: #FF5722;
+    background-color: #ff8482;
     color: #fff;
     border-radius: 2px
 }

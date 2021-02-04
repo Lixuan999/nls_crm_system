@@ -14,12 +14,12 @@ body {
     color: rgba(255, 255, 255, .7);
 }
 
-..left-nav a.active {
-    background: #009688 !important;
+.left-nav a.active {
+    background: #424242 !important;
     color: #fff;
 }
 
 .left-nav a:hover {
-    background: #009688 !important;
+    background: #424242 !important;
     color: #fff;
 }
