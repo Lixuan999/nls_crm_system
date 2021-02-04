@@ -76,11 +76,11 @@ body {
 
 .page span.current {
     display: inline-block;
-    background: #009688;
+    background: #2E6ED3;
     color: #fff;
     padding: 5px;
     min-width: 15px;
-    border: 1px solid #009688;
+    border: 1px solid #2E6ED3;
 }
 
 .page .pagination li {
@@ -90,9 +90,9 @@ body {
 }
 
 .page .pagination li.active span {
-    background: #009688;
+    background: #2E6ED3;
     color: #fff;
-    border: 1px solid #009688;
+    border: 1px solid #2E6ED3;
 
 }
 
@@ -405,7 +405,7 @@ body {
     font-style: normal;
     font-size: 30px;
     font-weight: 300;
-    color: #009688
+    color: #2E6ED3
 }
 
 .x-admin-backlog-body:hover {
