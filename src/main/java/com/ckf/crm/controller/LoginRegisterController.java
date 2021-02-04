@@ -66,7 +66,7 @@ public class LoginRegisterController {
 
             String accountName = employee.getAccountName();
 
-            //如果该用户有昵称则显示昵称，否则显示yo
+            //如果该用户有昵称则显示昵称，否则显示用户名
             if (!accountName.isEmpty()) {
                 session.setAttribute("accountName", accountName);
             } else {

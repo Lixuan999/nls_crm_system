@@ -13,7 +13,7 @@ import java.util.List;
  * </p>
  *
  * @author xuan
- * @since 2020-03-27
+ * @since 2021-03-27
  */
 public interface GambitService extends IService<Gambit> {
 
