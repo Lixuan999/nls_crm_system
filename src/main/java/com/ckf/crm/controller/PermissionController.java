@@ -46,14 +46,13 @@ public class PermissionController {
 
 
     /**
-     * 查询权限
+     * 查询权限(权限字符显示)
      *
      * @return
      */
     @GetMapping("/goPerm")
     public List<Permission> goPerm() {
-
-        return permissionService.selectPermissionAll();
+        return permissionService.list();
     }
 
 

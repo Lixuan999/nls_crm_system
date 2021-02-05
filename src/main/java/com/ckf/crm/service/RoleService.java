@@ -71,13 +71,20 @@ public interface RoleService extends IService<Role> {
     List<Role> selectRoleNameLike(String rName);
 
 
-    List<Role> selectRolePermissionAll();
 
     /**
-     * 辅助类全查询角色和权限
+     * 全查询角色和权限
      *
      * @return
      */
-    List<Role> selectRolePermissionAllVo();
+
+    List<Role> selectRolePermissionAll();
+
+   /* *//**
+     * 辅助类全查询角色和权限
+     *
+     * @return
+     *//*
+    List<Role> selectRolePermissionAllVo();*/
 
 }

@@ -54,11 +54,11 @@ public interface RoleMapper extends BaseMapper<Role> {
     List<Role> selectRolePermissionAll();
 
 
-    /**
+   /* *//**
      * 辅助类全查询角色和权限
      *
      * @return
-     */
+     *//*
     List<Role> selectRolePermissionAllVo();
-
+*/
 }

@@ -119,10 +119,6 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         int roleId = role.getRolId();
         RolePerm rolePerm = new RolePerm(roleId, permId);
 
-        rolePerm.setCreateTime(TimeUtils.dateTime());
-        rolePerm.setUpdateTime(TimeUtils.dateTime());
-        rolePerm.setIsDel(0);
-
         rolePermMapper.insert(rolePerm);
         return result;
     }
@@ -194,13 +190,13 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         return roleMapper.selectRolePermissionAll();
     }
 
-    /**
+/*    *//**
      * 辅助类 全查询加色和权限
      *
      * @return
-     */
+     *//*
     @Override
     public List<Role> selectRolePermissionAllVo() {
         return roleMapper.selectRolePermissionAllVo();
-    }
+    }*/
 }

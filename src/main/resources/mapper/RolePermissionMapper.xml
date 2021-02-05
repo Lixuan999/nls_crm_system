@@ -5,11 +5,8 @@
 
     <!--通过辅助查询类来存储查询结果，pojo类-->
     <select id="selectRolePermissionAllVo" resultType="com.ckf.crm.vo.RolePermissionVo">
-        select distinct role.r_id,r_name,permission.p_id,perm_name,permission,url,role.create_time,role.update_time from
-        role
-        left join role_perm on role_perm.role_id = role.r_id
-        left join permission on permission.p_id = role_perm.perm_id
-        where role.is_del=0
+            select permission_id,perm_name,permission,url,create_time,update_time,is_del
+            from permission;
     </select>
 
 </mapper>
