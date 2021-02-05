@@ -24,7 +24,7 @@
         <form class="layui-form">
             <input type="hidden" name="rolId" class="rolId">
 
-            <div class="layui-form-item">
+            <div class="layui-form-item" style="margin-top: 10px">
                 <label class="layui-form-label ">
                     <span class="x-red">*</span>角色名称
                 </label>
@@ -45,6 +45,19 @@
                 </div>
             </div>
 
+            <div class = "layui-from-item">
+                <label class="layui-form-label">
+                    <span class ="x-red">*</span>所属部门
+                </label>
+                <div class="layui-input-block" style="width: 300px">
+                    <!--查询该角色所处部门-->
+                    <select name="departmentId" id="dName" lay-verify="required" lay-search>
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-row layui-col-space25">
 
             <div class="layui-form-item">
                 <div class="layui-input-block">

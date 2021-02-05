@@ -1,7 +1,7 @@
 layui.use(['form', 'layer'], function () {
 
-    $ = layui.jquery;
-    var form = layui.form
+    let $ = layui.jquery;
+    const form = layui.form
         , layer = layui.layer;
 
     $(function () {
@@ -23,6 +23,29 @@ layui.use(['form', 'layer'], function () {
                 layui.form.render("select");
             }, error: function () {
                 alert("查询权限字符失败！！！")
+            }
+        });
+    })
+
+    $(function () {
+        $.ajax({
+            //提交数据的类型 POST GET
+            type: "GET",
+            //提交的网址
+            url: "/dep/goDepartment",
+            //提交的数据
+            //返回数据的格式
+            datatype: "json",
+            //成功返回之后调用的函数
+            success: function (data) {
+                console.log(data);
+                $.each(data, function (index, item) {
+                    $('#dName').append(new Option(item.dName, item.departmentId));// 下拉菜单里添加元素
+                });
+
+                layui.form.render("select");
+            }, error: function () {
+                alert("查询所属部门失败！！！")
             }
         });
     })

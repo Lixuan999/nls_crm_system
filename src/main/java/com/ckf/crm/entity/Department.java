@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,6 +32,8 @@ public class Department extends BaseEntity implements Serializable{
     @TableId(type = IdType.AUTO)
     private Integer departmentId;
 
+    @TableField("d_name")
+    @JsonProperty("dName")
     private String dName;
 
     private String dManager;

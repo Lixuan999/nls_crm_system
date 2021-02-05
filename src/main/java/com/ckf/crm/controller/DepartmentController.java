@@ -48,6 +48,17 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
+
+    /**
+     * 查询部门
+     *
+     * @return
+     */
+    @GetMapping("/goDepartment")
+    public List<Department> goDepartment() {
+        return departmentService.list();
+    }
+
     /**
      * 查询部门信息
      *
