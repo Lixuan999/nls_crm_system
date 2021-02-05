@@ -111,10 +111,6 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     public Integer addRole(Role role, Integer permId) {
         System.out.println("-------------进入添加角色service实现层---------------");
 
-        role.setCreateTime(TimeUtils.dateTime());
-        role.setUpdateTime(TimeUtils.dateTime());
-        role.setIsDel(0);
-
         int result = roleMapper.insert(role);
 
         System.out.println("role数据--" + role);
