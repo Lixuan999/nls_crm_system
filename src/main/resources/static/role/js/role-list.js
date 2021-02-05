@@ -166,13 +166,13 @@ layui.config({
 
     //编辑
     function editEmployee(data) {
-        var index = layui.layer.open({
+        const index = layui.layer.open({
             title: "编辑",
             type: 2,
             content: "rol-edit.html",//弹出层页面
             area: ['100%', '100%'],
             success: function (layer, index) {
-                var body = layui.layer.getChildFrame('body', index);
+                const body = layui.layer.getChildFrame('body', index);
                 if (data) {
                     // 取到弹出层里的元素，并把编辑的内容放进去 数据回显
                     body.find(".rolId").val(data.rolId);
@@ -193,7 +193,7 @@ layui.config({
                     });
                 }, 500)
             }
-        })
+        });
         //layui.layer.full(index);//设置弹出层布满窗口
         //改变窗口大小时，重置弹窗的宽高，防止超出可视区域（如F12调出debug的操作）
         $(window).on("resize", function () {
@@ -202,13 +202,13 @@ layui.config({
     }
 
     function addEmployee(data) {
-        var index = layui.layer.open({
+        const index = layui.layer.open({
             title: "添加",
             type: 2,
             content: "./rol-add.html",//弹出层页面
             area: ['600px', '300px'],
             success: function (layer, index) {
-                var body = layui.layer.getChildFrame('body', index);
+                const body = layui.layer.getChildFrame('body', index);
                 if (data) {
                     // 取到弹出层里的元素，并把编辑的内容放进去
                     // 给select标签赋值value。
@@ -223,7 +223,7 @@ layui.config({
                     });
                 }, 500)
             }
-        })
+        });
 
         //layui.layer.full(index);//设置弹出层布满窗口
         //改变窗口大小时，重置弹窗的宽高，防止超出可视区域（如F12调出debug的操作）
