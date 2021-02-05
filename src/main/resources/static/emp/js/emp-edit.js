@@ -87,7 +87,6 @@ layui.config({
 
                     }
                 });
-
                 form.render();
             }
         }

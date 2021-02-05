@@ -20,13 +20,23 @@ layui.config({
 
             //表头
             {type: 'checkbox', fixed: 'left'}
-            , {field: 'rolId', title: 'ID', fixed: 'left', align: 'center'}
+            , {type: 'numbers', title: '序号', align: 'center'}
             , {field: 'rname', title: '角色名称', align: 'center'}
-            , {field: 'permName', templet: '<div>{{d.permissionList[0].permName}}</div>', title: '权限名称', align: 'center'}
-            , {field: 'permission', templet: '<div>{{d.permissionList[0].permission}}</div>', title: '权限', align: 'center'}
+            , {
+                field: 'permName',
+                templet: '<div>{{d.permissionList[0].permName}}</div>',
+                title: '权限名称',
+                align: 'center'
+            }
+            , {
+                field: 'permission',
+                templet: '<div>{{d.permissionList[0].permission}}</div>',
+                title: '权限',
+                align: 'center'
+            }
             , {field: 'dname', templet: '<div>{{d.departmentList[0].dname}}</div>', title: '部门', align: 'center'}
             , {
-                field: 'isDel', title: '状态', width: 100,align: 'center', templet: function (data) {
+                field: 'isDel', title: '状态', width: 100, align: 'center', templet: function (data) {
                     if (data.isDel == 0) {
                         return '<div> <input type="checkbox" checked="" name="codeSwitch" lay-skin="switch" id="open" lay-filter="switchTest" switchId=' + data.rolId + '' +
                             ' lay-text="已启用|已禁用"  value=' + data.isDel + '></div>';
@@ -226,7 +236,6 @@ layui.config({
 });
 
 
-
 $(function () {
 
     /***********************模糊查询开始*****************************/
@@ -276,12 +285,7 @@ $(function () {
                     [
                         //表头
                         {type: 'checkbox', fixed: 'left'}
-                        , {
-                        field: 'rolId',
-                        title: 'ID',
-                        fixed: 'left',
-                        align: 'center'
-                    }
+                        , {type: 'numbers', title: '序号', align: 'center'}
                         , {field: 'rname', title: '角色名', align: 'center'}
                         , {
                         field: 'permName',
@@ -302,7 +306,7 @@ $(function () {
                         align: 'center'
                     }
                         , {
-                        field: 'isDel', title: '状态', width: 100,align: 'center', templet: function (data) {
+                        field: 'isDel', title: '状态', width: 100, align: 'center', templet: function (data) {
                             if (data.isDel == 0) {
                                 return '<div> <input type="checkbox" checked="" name="codeSwitch" lay-skin="switch" id="open" lay-filter="switchTest" switchId=' + data.rolId + '' +
                                     ' lay-text="已启用|已禁用"  value=' + data.isDel + '></div>';

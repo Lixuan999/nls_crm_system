@@ -45,6 +45,7 @@
         left join dept_role on dept_role.role_id=role.rol_id
         left join department on department.department_id=dept_role.dep_id
         group by rol_id
+        order by department_id,rol_id
     </sql>
 
 
