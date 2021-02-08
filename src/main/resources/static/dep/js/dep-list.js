@@ -23,12 +23,19 @@ layui.config({
 
             //表头
             {type: 'checkbox', fixed: 'left'}
-            , {field: 'departmentId', title: 'ID', align: 'center', sort: true}
+            , {field: 'departmentId', title: 'ID', align: 'center', sort: true, width: 80}
             , {field: 'dName', title: '部门名称', align: 'center'}
             , {field: 'dmanager', title: '部门领导', align: 'center'}
-            , {field: 'dpopulation', title: '部门人数', align: 'center', sort: true}
-            , {field: 'roleList', templet: '<div>{{d.roleList[0].rName}}</div>', title: '角色', align: 'center'}
-            , {field: 'roleList', templet: "#roleList", title: '角色列表'}
+            , {field: 'dpopulation', title: '部门人数', align: 'center', sort: true, width: 120}
+            , {
+                field: 'roleList', templet: function (data) {
+                    const list = [];
+                    data.roleList.forEach((item) => {
+                        list.push(item.rName);
+                    });
+                    return list.toString();
+                }, title: '角色列表', align: 'center',width:320
+            }
             , {field: 'createTime', title: '创建时间', align: 'center', sort: true}
             , {field: 'updateTime', title: '修改时间', align: 'center', sort: true}
             , {fixed: 'right', align: 'center', toolbar: '#barDemo', title: '操作', align: 'center'}
