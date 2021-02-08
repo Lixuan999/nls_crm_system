@@ -11,7 +11,7 @@ layui.config({
         skin: 'line'
         , elem: '#valueTable'  //要和table标签ID一致
         , url: '/gam/gambit'
-        , id: 'testReload'
+        , id: 'reload'
         , toolbar: '#toolbar'
         , cols: [[
 
@@ -313,10 +313,10 @@ layui.config({
                     body.find(".gCheckState").val(data.gcheckstate);
 
                     // 给select标签赋值value。
-                    body.find("#rname").val(data.roleId);
+                    body.find("#rName").val(data.roleId);
 
                     // 根据id选择那一项
-                    body.find("#rname option").eq(data.roleId).attr("selected");
+                    body.find("#rName option").eq(data.roleId).attr("selected");
 
                     // 记得重新渲染表单
                     form.render();
@@ -398,7 +398,7 @@ $(function () {
                 elem: '#valueTable'  //要和table标签ID一致
                 , url: '/gam/gamSearchName'
                 , type: "GET"
-                , id: 'testReload'
+                , id: 'reload'
                 , toolbar: '#toolbar'
                 , defaultToolbar: ['filter', 'exports', '', {  //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
                     title: '提示'

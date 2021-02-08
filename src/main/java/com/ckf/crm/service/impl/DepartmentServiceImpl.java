@@ -85,39 +85,8 @@ public class DepartmentServiceImpl extends ServiceImpl<DepartmentMapper, Departm
      */
     @Override
     public Integer addDepartment(Department department, Integer roleId) {
-        System.out.println("-------------进入添加部门service实现层---------------");
-
-        System.out.println("role数据--" + department);
-        logger.info("roleId={}" + roleId);
-
-
-        int result = departmentMapper.insert(department);
-
-        int departmentId = department.getDepartmentId();
-        DeptRole deptRole = new DeptRole(departmentId, roleId);
-
-        deptRoleMapper.insert(deptRole);
-        return result;
+        return departmentMapper.insert(department);
     }
-
-    @Override
-    public Integer addDepRole(Role role, Integer departmentId) {
-
-
-        System.out.println("-----------0.0---------------------");
-        System.out.println(role);
-        System.out.println("departmentId="+departmentId);
-
-        Role roleInfo = roleMapper.selectOne(new QueryWrapper<Role>().eq("r_name", role.getRName()));
-        Integer roleId = roleInfo.getRolId();
-
-
-        DeptRole deptRole = new DeptRole(departmentId, roleId);
-
-        int result = deptRoleMapper.insert(deptRole);
-        return result;
-    }
-
 
 
     /**
@@ -129,29 +98,7 @@ public class DepartmentServiceImpl extends ServiceImpl<DepartmentMapper, Departm
      */
     @Override
     public Integer updateDepartment(Department department, Integer roleId) {
-        System.out.println("---------------进入修改部门service实现层----------------");
-
-        System.out.println("department数据--" + department);
-        System.out.println("roleId--" + roleId);
-
-        department.setCreateTime(department.getCreateTime());
-        department.setUpdateTime(TimeUtils.dateTime());
-        department.setIsDel(0);
-        int result = departmentMapper.updateById(department);
-
-        DeptRole deptRole = new DeptRole(department.getDepartmentId(), roleId);
-
-        deptRole.setUpdateTime(TimeUtils.dateTime());
-
-        AbstractWrapper wrapper = new QueryWrapper();
-
-        //dep_id  复合主键表部门的数据库字段
-        wrapper.eq("dep_id", department.getDepartmentId());
-
-        System.out.println("role.getRId()--" + department.getDepartmentId());
-
-        deptRoleMapper.update(deptRole, wrapper);
-        return result;
+        return departmentMapper.updateById(department);
     }
 
     /**

@@ -43,7 +43,7 @@ public class Department extends BaseEntity implements Serializable{
     private String dRemark;
 
     /**
-     * 一个部门属于多个角色
+     * 一个部门拥有多个角色
      */
     @TableField(exist = false)
     private List<Role> roleList;

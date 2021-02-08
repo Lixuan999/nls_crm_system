@@ -11,7 +11,7 @@ layui.config({
     table.render({
         elem: '#valueTable'  //要和table标签ID一致
         , url: '/rol/role'
-        , id: 'testReload'
+        , id: 'reload'
         , toolbar: '#toolbar'
         , page: true
         , limit: 10
@@ -21,7 +21,7 @@ layui.config({
             //表头
             {type: 'checkbox', fixed: 'left'}
             , {type: 'numbers', title: '序号', align: 'center'}
-            , {field: 'rname', title: '角色名称', align: 'center'}
+            , {field: 'rName', title: '角色名称', align: 'center'}
             , {
                 field: 'permName',
                 templet: '<div>{{d.permissionList[0].permName}}</div>',
@@ -176,7 +176,7 @@ layui.config({
                 if (data) {
                     // 取到弹出层里的元素，并把编辑的内容放进去 数据回显
                     body.find(".rolId").val(data.rolId);
-                    body.find(".rName").val(data.rname);
+                    body.find(".rName").val(data.rName);
 
                     // 给select标签赋值value。
                     body.find("#permName").val(data.permId);
@@ -259,7 +259,7 @@ $(function () {
                 elem: '#valueTable'  //要和table标签ID一致
                 , url: '/rol/rolSearchName'
                 , type: "GET"
-                , id: 'testReload'
+                , id: 'reload'
                 , toolbar: '#toolbar'
                 , defaultToolbar: ['filter', 'exports', '', {  //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
                     title: '提示'
@@ -286,7 +286,7 @@ $(function () {
                         //表头
                         {type: 'checkbox', fixed: 'left'}
                         , {type: 'numbers', title: '序号', align: 'center'}
-                        , {field: 'rname', title: '角色名', align: 'center'}
+                        , {field: 'rName', title: '角色名', align: 'center'}
                         , {
                         field: 'permName',
                         templet: '<div>{{d.permissionList[0].permName}}</div>',

@@ -1,18 +1,18 @@
 layui.config({
     base: "js/"
 }).use(['table', 'layer', 'form', 'jquery'], function () {
-    var table = layui.table,
+    let table = layui.table,
         form = layui.form,
         layer = parent.layer === undefined ? layui.layer : parent.layer,
         $ = layui.jquery;
-    var layerIndex = layer.load(3);
+    const layerIndex = layer.load(3);
 
 
     table.render({
-        elem: '#valueTable'  //要和table标签ID一致
-        , url: '/dep/department'
-        , id: 'testReload'
-        , toolbar: '#toolbar'
+        elem: '#depInfo'  //要和table标签ID一致
+        , url: '/dep/department' //数据接口
+        , id: 'reload'
+        , toolbar: '#toolbar'//绑定工具条模板
         , page: true
         , loading: true
         //打印数据到控制台
@@ -23,53 +23,54 @@ layui.config({
 
             //表头
             {type: 'checkbox', fixed: 'left'}
-            , {field: 'departmentId', title: 'ID', align: 'center'}
+            , {field: 'departmentId', title: 'ID', align: 'center', sort: true}
             , {field: 'dName', title: '部门名称', align: 'center'}
             , {field: 'dmanager', title: '部门领导', align: 'center'}
-            , {field: 'dpopulation', title: '部门人数', align: 'center'}
-            , {field: 'rname', templet: '<div>{{d.roleList[0].rname}}</div>', title: '角色', align: 'center',}
-            , {field: 'createTime', title: '创建时间', align: 'center'}
-            , {field: 'updateTime', title: '修改时间', align: 'center'}
+            , {field: 'dpopulation', title: '部门人数', align: 'center', sort: true}
+            , {field: 'roleList', templet: '<div>{{d.roleList[0].rName}}</div>', title: '角色', align: 'center'}
+            , {field: 'roleList', templet: "#roleList", title: '角色列表'}
+            , {field: 'createTime', title: '创建时间', align: 'center', sort: true}
+            , {field: 'updateTime', title: '修改时间', align: 'center', sort: true}
             , {fixed: 'right', align: 'center', toolbar: '#barDemo', title: '操作', align: 'center'}
         ]]
 
-        , limit: 10
-        , limits: [10, 20, 25, 50, 100]
+        , limit: 100
         , parseData: function (data) {
 
             //打印数据
             console.log(data)
         }
         //开启分页
-        , page: true
+        , page: false
         , where: {isDel: 0}
         , id: 'listReload'
     });
     layer.close(layerIndex);
 
+    $ = layui.$;
     /**
      * 批量删除
      * @type {pe|jQuery|HTMLElement}
      */
-    var $ = layui.$, active = {
+    var active = {
         /**
          * 批量删除链接
          *
          * */
         closeBtn: function () {
-            var $checkbox = $('table input[type="checkbox"][name="layTableCheckbox"]');
-            var $checked = $('table input[type="checkbox"][name="layTableCheckbox"]:checked');
+            const $checkbox = $('table input[type="checkbox"][name="layTableCheckbox"]');
+            const $checked = $('table input[type="checkbox"][name="layTableCheckbox"]:checked');
             if ($checkbox.is(":checked")) {
-                var checkStatusId = table.checkStatus('listReload'),
+                const checkStatusId = table.checkStatus('listReload'),
                     data = checkStatusId.data,
                     departmentId = [];
 
-                for (var i in data) {
+                for (const i in data) {
                     departmentId.push(data[i].departmentId)
                 }
 
                 layer.confirm('确定要删除' + data.length + '条数据吗?', {title: '系统信息'}, function (index) {
-                    var layerIndex = layer.load(3);
+                    const layerIndex = layer.load(3);
 
                     $.ajax({
                         url: '/dep/delBatch',
@@ -258,9 +259,9 @@ layui.config({
                     body.find(".dPopulation").val(data.dpopulation);
 
                     // 给select标签赋值value。
-                    body.find("#rname").val(data.roleId);
+                    body.find("#rName").val(data.roleId);
                     // 根据id选择那一项
-                    body.find("#rname option").eq(data.roleId).attr("selected");
+                    body.find("#rName option").eq(data.roleId).attr("selected");
 
                     //记得重新渲染表单
                     form.render();
@@ -341,7 +342,7 @@ $(function () {
                 elem: '#valueTable'  //要和table标签ID一致
                 , url: '/dep/depSearchName'
                 , type: "GET"
-                , id: 'testReload'
+                , id: 'reload'
                 , toolbar: '#toolbar'
                 , defaultToolbar: ['filter', 'exports', '', {  //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
                     title: '提示'
@@ -370,13 +371,13 @@ $(function () {
                     [
                         //表头
                         {type: 'checkbox', fixed: 'left'}
-                        , {field: 'departmentId', title: 'ID', align: 'center'}
+                        , {field: 'departmentId', title: 'ID', align: 'center', sort: true}
                         , {field: 'dName', title: '部门名称', align: 'center'}
                         , {field: 'dmanager', title: '部门领导', align: 'center'}
                         , {field: 'dpopulation', title: '部门人数', align: 'center'}
                         , {
-                        field: 'rname',
-                        templet: '<div>{{d.roleList[0].rname}}</div>',
+                        field: 'rName',
+                        templet: '<div>{{d.roleList[0].rName}}</div>',
                         title: '角色',
                         sort: true,
                         align: 'center',
@@ -393,8 +394,8 @@ $(function () {
 
                         }
                     }
-                        , {field: 'createTime', title: '创建时间', align: 'center'}
-                        , {field: 'updateTime', title: '修改时间', align: 'center'}
+                        , {field: 'createTime', title: '创建时间', align: 'center', sort: true}
+                        , {field: 'updateTime', title: '修改时间', align: 'center', sort: true}
                         , {
                         fixed: 'right',
                         width: 100,

@@ -27,7 +27,7 @@ layui.config({
         success: function (data) {
             console.log(data);
             $.each(data, function (index, item) {
-                $('#rname').append(new Option(item.rname, item.rolId));// 下拉菜单里添加元素
+                $('#rName').append(new Option(item.rName, item.rolId));// 下拉菜单里添加元素
             });
             layui.form.render("select");
         }, error: function () {
@@ -67,7 +67,7 @@ layui.config({
                     success: function (data) {
                         console.log(data)
                         if (data.code == 200) {
-                            $("#rname").each(function () {
+                            $("#rName").each(function () {
                                 $(this).children("option").each(function () {
                                     if (this.value == data.data.roleId) {
                                         $(this).attr("selected", "selected");

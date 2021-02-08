@@ -11,7 +11,7 @@ layui.config({
     table.render({
         elem: '#valueTable'  //要和table标签ID一致
         , url: '/emp/employee'
-        , id: 'testReload'
+        , id: 'reload'
         , toolbar: '#toolbar'
         , page: true
         , limit: 10
@@ -19,10 +19,10 @@ layui.config({
 
             //表头
             {type: 'checkbox', fixed: 'left'}
-            , {type: 'numbers', title: '序号', align: 'center'}
+            , {type: 'numbers', title: '序号', align: 'center', sort: true}
             , {field: 'accountName', title: '员工昵称', align: 'center'}
             , {field: 'empName', title: '员工姓名', align: 'center'}
-            , {field: 'sex', title: '性别', align: 'center'}
+            , {field: 'sex', title: '性别', align: 'center', sort: true}
             , {field: 'age', title: '年龄', align: 'center'}
             , {field: 'phone', title: '手机', align: 'center'}
             , {field: 'address', title: '居住地址', align: 'center'}
@@ -38,8 +38,8 @@ layui.config({
                 }
             }
             , {
-                field: 'rname',
-                templet: '<div>{{d.roleList[0].rname}}</div>',
+                field: 'rName',
+                templet: '<div>{{d.roleList[0].rName}}</div>',
                 title: '角色',
                 align: 'center'
             }
@@ -335,7 +335,7 @@ $(function () {
                 elem: '#valueTable'  //要和table标签ID一致
                 , url: '/emp/empSearchName'
                 , type: "GET"
-                , id: 'testReload'
+                , id: 'reload'
                 , toolbar: '#toolbar'
                 , defaultToolbar: ['filter', 'exports', '', {  //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
                     title: '提示'
@@ -381,8 +381,8 @@ $(function () {
                         }
                     }
                         , {
-                        field: 'rname',
-                        templet: '<div>{{d.roleList[0].rname}}</div>',
+                        field: 'rName',
+                        templet: '<div>{{d.roleList[0].rName}}</div>',
                         title: '角色',
                         align: 'center'
                     }

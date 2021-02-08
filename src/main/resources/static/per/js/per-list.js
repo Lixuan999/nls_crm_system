@@ -10,7 +10,7 @@ layui.config({
     table.render({
         elem: '#valueTable'  //要和table标签ID一致
         , url: '/per/permission'
-        , id: 'testReload'
+        , id: 'reload'
         , toolbar: '#toolbar'
         , page: true
         , limit: 10
@@ -27,7 +27,7 @@ layui.config({
             , {field: 'permName', title: '权限名称', align: 'center'}
             , {field: 'permission', title: '权限', align: 'center'}
             , {field: 'url', title: '权限规则', align: 'center'}
-            , {field: 'rname', templet: '<div>{{d.roleList[0].rname}}</div>', title: '角色', align: 'center'}
+            , {field: 'rName', templet: '<div>{{d.roleList[0].rname}}</div>', title: '角色', align: 'center'}
             , {
                 field: 'isDel', title: '状态', width: 100, align: 'center', templet: function (data) {
                     if (data.isDel == 0) {
@@ -344,7 +344,7 @@ $(function () {
                 elem: '#valueTable'  //要和table标签ID一致
                 , url: '/per/perSearchName'
                 , type: "GET"
-                , id: 'testReload'
+                , id: 'reload'
                 , toolbar: '#toolbar'
                 , defaultToolbar: ['filter', 'exports', '', {  //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
                     title: '提示'
@@ -377,7 +377,7 @@ $(function () {
                         , {field: 'permName', title: '权限名称', align: 'center'}
                         , {field: 'permission', title: '权限', align: 'center'}
                         , {field: 'url', title: '权限规则', align: 'center'}
-                        , {field: 'rname', templet: '<div>{{d.roleList[0].rname}}</div>', title: '角色', align: 'center'}
+                        , {field: 'rName', templet: '<div>{{d.roleList[0].rname}}</div>', title: '角色', align: 'center'}
                         , {
                         field: 'isDel', title: '状态', width: 100, align: 'center', templet: function (data) {
                             if (data.isDel == 0) {

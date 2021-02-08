@@ -10,7 +10,7 @@ layui.config({
     table.render({
         elem: '#valueTable'  //要和table标签ID一致
         , url: '/cont/contact'
-        , id: 'testReload'
+        , id: 'reload'
         , toolbar: '#toolbar'
         , page: true
         , limit: 10
@@ -19,7 +19,7 @@ layui.config({
 
             //表头
             {type: 'checkbox', fixed: 'left'}
-            , {field: 'contactId', title: 'ID', align: 'center'}
+            , {field: 'contactId', title: 'ID', align: 'center', sort: true}
             , {field: 'way', title: '联系途径', align: 'center'}
             , {field: 'content', title: '聊天内容', align: 'center'}
             , {field: 'empName', templet: '<div>{{d.employeeList[0].empName}}</div>', title: '负责人', align: 'center'}

@@ -10,7 +10,7 @@ layui.config({
     table.render({
         elem: '#valueTable'  //要和table标签ID一致
         , url: '/ord/orders'
-        , id: 'testReload'
+        , id: 'reload'
         , toolbar: '#toolbar'
         , page: true
         , loading: true
@@ -18,8 +18,8 @@ layui.config({
 
             //表头
             {type: 'checkbox', fixed: 'left'}
-            , {field: 'ordersId', title: 'ID', align: 'center'}
-            , {field: 'totalPrice', title: '共价', align: 'center'}
+            , {field: 'ordersId', title: 'ID', align: 'center', sort: true}
+            , {field: 'totalPrice', title: '共价', align: 'center', sort: true}
             , {
                 field: 'customerName',
                 templet: '<div>{{d.customerList[0].customerName}}</div>',
@@ -44,8 +44,8 @@ layui.config({
                 title: '业务名称',
                 align: 'center'
             }
-            , {field: 'createTime', title: '下单时间', align: 'center'}
-            , {field: 'updateTime', title: '修改时间', align: 'center'}
+            , {field: 'createTime', title: '下单时间', align: 'center', sort: true}
+            , {field: 'updateTime', title: '修改时间', align: 'center', sort: true}
             , {fixed: 'right', align: 'center', toolbar: '#barDemo', title: '操作', align: 'center'}
 
         ]]

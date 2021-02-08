@@ -42,14 +42,6 @@ public interface DepartmentService extends IService<Department> {
 
 
     /**
-     * 添加部门和角色关系信息
-     * @param role
-     * @param departmentId
-     * @return
-     */
-    Integer addDepRole(Role role, Integer departmentId);
-
-    /**
      * 修改部门信息
      *
      * @param department

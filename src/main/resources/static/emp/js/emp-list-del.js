@@ -24,7 +24,7 @@ layui.use('table', function () {
     table.render({
         elem: '#valueTable'  //要和table标签ID一致
         , url: '/emp/employeeDelList'
-        , id: 'testReload'
+        , id: 'reload'
         , toolbar: '#toolbar'
         , page: true
         , limit: 10
@@ -33,14 +33,14 @@ layui.use('table', function () {
 
             //表头
             {type: 'checkbox', fixed: 'left'}
-            , {field: 'employeeId', title: 'ID', align: 'center'}
+            , {field: 'employeeId', title: 'ID', align: 'center', sort: true}
             , {field: 'empName', title: '登录名', align: 'center'}
-            , {field: 'sex', title: '性别', align: 'center'}
-            , {field: 'age', title: '年龄', align: 'center'}
+            , {field: 'sex', title: '性别', align: 'center', sort: true}
+            , {field: 'age', title: '年龄', align: 'center', sort: true}
             , {field: 'phone', title: '手机', align: 'center'}
             , {field: 'address', title: '地址', align: 'center'}
-            , {field: 'createTime', title: '创建时间', align: 'center'}
-            , {field: 'updateTime', title: '修改时间', align: 'center'}
+            , {field: 'createTime', title: '创建时间', align: 'center', sort: true}
+            , {field: 'updateTime', title: '修改时间', align: 'center', sort: true}
             , {fixed: 'right',  align: 'center', toolbar: '#barDemo', title: '操作', align: 'center'}
 
         ]]
@@ -192,7 +192,7 @@ $(function () {
                 elem: '#valueTable'  //要和table标签ID一致
                 , url: '/emp/empSearchNameDel'
                 , type: "GET"
-                , id: 'testReload'
+                , id: 'reload'
                 , toolbar: '#toolbar'
                 , defaultToolbar: ['filter', 'exports', 'print', {  //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
                     title: '提示'
@@ -219,14 +219,14 @@ $(function () {
                     [
                         //表头
                         {type: 'checkbox', fixed: 'left'}
-                        , {field: 'employeeId', title: 'ID', align: 'center'}
+                        , {field: 'employeeId', title: 'ID', align: 'center', sort: true}
                         , {field: 'empName', title: '登录名', align: 'center'}
-                        , {field: 'sex', title: '性别', align: 'center'}
-                        , {field: 'age', title: '年龄', align: 'center'}
+                        , {field: 'sex', title: '性别', align: 'center', sort: true}
+                        , {field: 'age', title: '年龄', align: 'center', sort: true}
                         , {field: 'phone', title: '手机', align: 'center'}
                         , {field: 'address', title: '地址', align: 'center'}
-                        , {field: 'createTime', title: '创建时间', align: 'center'}
-                        , {field: 'updateTime', title: '修改时间', align: 'center'}
+                        , {field: 'createTime', title: '创建时间', align: 'center', sort: true}
+                        , {field: 'updateTime', title: '修改时间', align: 'center', sort: true}
                         , {
                         fixed: 'right',
                         width: 100,

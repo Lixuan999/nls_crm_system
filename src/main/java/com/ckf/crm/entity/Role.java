@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -36,6 +37,8 @@ public class Role extends BaseEntity {
     @TableId(type = IdType.AUTO)
     private Integer rolId;
 
+    @TableField("r_name")
+    @JsonProperty("rName")
     private String rName;
 
     /**

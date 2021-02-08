@@ -10,7 +10,7 @@ layui.config({
     table.render({
         elem: '#valueTable'  //要和table标签ID一致
         , url: '/cus/offCustomerList'
-        , id: 'testReload'
+        , id: 'reload'
         , toolbar: '#toolbar'
         , page: true
         , limit: 10
@@ -19,15 +19,15 @@ layui.config({
 
             //表头
             {type: 'checkbox', fixed: 'left'}
-            , {field: 'customerId', title: 'ID', align: 'center'}
+            , {field: 'customerId', title: 'ID', align: 'center', sort: true}
             , {field: 'customerName', title: '姓名', align: 'center'}
-            , {field: 'sex', title: '性别', align: 'center'}
+            , {field: 'sex', title: '性别', align: 'center', sort: true}
             , {field: 'phone', title: '手机号码', align: 'center'}
             , {field: 'company', title: '公司', align: 'center'}
             , {field: 'address', title: '公司地址', align: 'center',}
             , {field: 'empName', templet: '<div>{{d.employeeList[0].empName}}</div>', title: '负责人', align: 'center'}
-            , {field: 'createTime', title: '创建时间', align: 'center'}
-            , {field: 'updateTime', title: '修改时间', align: 'center'}
+            , {field: 'createTime', title: '创建时间', align: 'center', sort: true}
+            , {field: 'updateTime', title: '修改时间', align: 'center', sort: true}
             , {fixed: 'right', title: '操作', toolbar: '#barDemo', align: 'center'}
 
         ]]
@@ -273,7 +273,7 @@ $(function () {
                 elem: '#valueTable'  //要和table标签ID一致
                 , url: '/cus/cusSearchNameOfficial'
                 , type: "GET"
-                , id: 'testReload'
+                , id: 'reload'
                 , toolbar: '#toolbar'
                 , defaultToolbar: ['filter', 'exports', 'print', {  //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
                     title: '提示'
@@ -301,9 +301,9 @@ $(function () {
 
                         //表头
                         {type: 'checkbox', fixed: 'left'}
-                        , {field: 'customerId', title: 'ID', align: 'center'}
+                        , {field: 'customerId', title: 'ID', align: 'center', sort: true}
                         , {field: 'customerName', title: '姓名', align: 'center'}
-                        , {field: 'sex', title: '性别', align: 'center'}
+                        , {field: 'sex', title: '性别', align: 'center', sort: true}
                         , {field: 'phone', title: '手机号码', align: 'center'}
                         , {field: 'company', title: '公司', align: 'center'}
                         , {field: 'address', title: '公司地址', align: 'center',}
@@ -313,8 +313,8 @@ $(function () {
                         title: '负责人',
                         align: 'center'
                     }
-                        , {field: 'createTime', title: '创建时间', align: 'center'}
-                        , {field: 'updateTime', title: '修改时间', align: 'center'}
+                        , {field: 'createTime', title: '创建时间', align: 'center', sort: true}
+                        , {field: 'updateTime', title: '修改时间', align: 'center', sort: true}
                         , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150, align: 'center'}
 
                     ]

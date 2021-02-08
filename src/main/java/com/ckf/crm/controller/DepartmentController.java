@@ -73,6 +73,7 @@ public class DepartmentController {
 
         System.out.println("---------------进入部门信息全查询模式------------------");
 
+        //分页
         PageHelper.startPage(page, limit);
 
         List<Department> list = departmentService.selectDepartmentAll();
@@ -239,31 +240,6 @@ public class DepartmentController {
     }
 
 
-
-    @ApiOperation("添加部门和角色关系信息")
-    @PostMapping(path = "/depRoleAdd")
-    @ResponseBody
-    public Map<String, Object> addDepRole(Role role, Integer departmentId) {
-
-        System.out.println("------------进入添加部门和角色关系信息模式--------------");
-
-        System.out.println("role--" + role);
-        System.out.println("permId--" + departmentId);
-
-        Integer flag = departmentService.addDepRole(role, departmentId);
-
-        if (flag > 0) {
-            log.info("添加成功");
-            outMap.put("code", "200");
-            outMap.put("msg", "添加成功");
-        } else {
-            outMap.put("code", "100");
-            log.info("添加失败");
-            outMap.put("msg", "添加失败");
-        }
-        return outMap;
-    }
-
     /**
      * 修改部门信息
      *
@@ -275,8 +251,6 @@ public class DepartmentController {
     @ResponseBody
     public Map<String, Object> update(Department department, Integer roleId) {
         System.out.println("----------------进入修改部门信息模式------------------");
-
-        department.setUpdateTime(TimeUtils.dateTime());
 
         Integer flag = departmentService.updateDepartment(department, roleId);
 

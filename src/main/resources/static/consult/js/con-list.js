@@ -10,7 +10,7 @@ layui.config({
     table.render({
         elem: '#valueTable'  //要和table标签ID一致
         , url: '/con/consult'
-        , id: 'testReload'
+        , id: 'reload'
         , toolbar: '#toolbar'
         , limit: 10
         , loading: false
@@ -235,7 +235,7 @@ $(function () {
                 elem: '#valueTable'  //要和table标签ID一致
                 , url: '/con/conSearchName'
                 , type: "GET"
-                , id: 'testReload'
+                , id: 'reload'
                 , toolbar: '#toolbar'
                 , defaultToolbar: ['filter', 'exports', '', {  //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
                     title: '提示'

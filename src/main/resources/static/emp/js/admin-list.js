@@ -23,7 +23,7 @@ layui.use('table', function () {
     table.render({
         elem: '#valueTable'  //要和table标签ID一致
         , url: '/emp/adminList'
-        , id: 'testReload'
+        , id: 'reload'
         , toolbar: '#toolbar'
         , page: true
         , limit: 10
@@ -37,7 +37,7 @@ layui.use('table', function () {
             , {field: 'age', title: '年龄', align: 'center'}
             , {field: 'phone', title: '手机', align: 'center'}
             , {field: 'address', title: '地址', align: 'center'}
-            , {field: 'rname', templet: '<div>{{d.roleList[0].rname}}</div>', title: '角色', align: 'center',}
+            , {field: 'rName', templet: '<div>{{d.roleList[0].rName}}</div>', title: '角色', align: 'center',}
             , {field: 'createTime', title: '创建时间', align: 'center'}
             , {field: 'updateTime', title: '修改时间', align: 'center'}
             , {fixed: 'right', title: '操作', toolbar: '#barDemo', align: 'center'}
@@ -109,10 +109,10 @@ function editEmployee(data) {
                 body.find(".address").val(data.address);
 
                 // 给select标签赋值value。
-                body.find("#rname").val(data.roleId);
+                body.find("#rName").val(data.roleId);
 
                 // 根据id选择那一项
-                body.find("#rname option").eq(data.roleId).attr("selected");
+                body.find("#rName option").eq(data.roleId).attr("selected");
 
                 // 记得重新渲染表单
                 form.render();
