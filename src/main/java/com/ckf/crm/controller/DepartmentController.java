@@ -4,6 +4,7 @@ package com.ckf.crm.controller;
 import com.ckf.crm.entity.Department;
 import com.ckf.crm.entity.Employee;
 import com.ckf.crm.entity.Permission;
+import com.ckf.crm.entity.Role;
 import com.ckf.crm.model.ResultFormat;
 import com.ckf.crm.service.DepartmentService;
 import com.ckf.crm.utils.ResultUtil;
@@ -125,11 +126,10 @@ public class DepartmentController {
 
         if (flag) {
             log.info("禁用成功");
-            return outMap;
         } else {
             log.info("禁用失败");
-            return outMap;
         }
+        return outMap;
     }
 
     /**
@@ -223,9 +223,6 @@ public class DepartmentController {
     public Map<String, Object> add(Department department, Integer roleId) {
         System.out.println("------------进入添加部门信息模式--------------");
 
-        department.setCreateTime(TimeUtils.dateTime());
-        department.setUpdateTime(TimeUtils.dateTime());
-        department.setIsDel(0);
 
         Integer flag = departmentService.addDepartment(department, roleId);
 
@@ -241,6 +238,31 @@ public class DepartmentController {
         return outMap;
     }
 
+
+
+    @ApiOperation("添加部门和角色关系信息")
+    @PostMapping(path = "/depRoleAdd")
+    @ResponseBody
+    public Map<String, Object> addDepRole(Role role, Integer departmentId) {
+
+        System.out.println("------------进入添加部门和角色关系信息模式--------------");
+
+        System.out.println("role--" + role);
+        System.out.println("permId--" + departmentId);
+
+        Integer flag = departmentService.addDepRole(role, departmentId);
+
+        if (flag > 0) {
+            log.info("添加成功");
+            outMap.put("code", "200");
+            outMap.put("msg", "添加成功");
+        } else {
+            outMap.put("code", "100");
+            log.info("添加失败");
+            outMap.put("msg", "添加失败");
+        }
+        return outMap;
+    }
 
     /**
      * 修改部门信息

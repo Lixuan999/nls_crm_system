@@ -24,7 +24,7 @@ layui.config({
             //表头
             {type: 'checkbox', fixed: 'left'}
             , {field: 'departmentId', title: 'ID', align: 'center'}
-            , {field: 'dname', title: '部门名称', align: 'center'}
+            , {field: 'dName', title: '部门名称', align: 'center'}
             , {field: 'dmanager', title: '部门领导', align: 'center'}
             , {field: 'dpopulation', title: '部门人数', align: 'center'}
             , {field: 'rname', templet: '<div>{{d.roleList[0].rname}}</div>', title: '角色', align: 'center',}
@@ -253,7 +253,7 @@ layui.config({
                 if (data) {
                     // 取到弹出层里的元素，并把编辑的内容放进去 数据回显
                     body.find(".departmentId").val(data.departmentId)
-                    body.find(".dName").val(data.dname);
+                    body.find(".dName").val(data.dName);
                     body.find(".dManager").val(data.dmanager);
                     body.find(".dPopulation").val(data.dpopulation);
 
@@ -371,7 +371,7 @@ $(function () {
                         //表头
                         {type: 'checkbox', fixed: 'left'}
                         , {field: 'departmentId', title: 'ID', align: 'center'}
-                        , {field: 'dname', title: '部门名称', align: 'center'}
+                        , {field: 'dName', title: '部门名称', align: 'center'}
                         , {field: 'dmanager', title: '部门领导', align: 'center'}
                         , {field: 'dpopulation', title: '部门人数', align: 'center'}
                         , {

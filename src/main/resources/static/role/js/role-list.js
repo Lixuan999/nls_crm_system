@@ -34,7 +34,7 @@ layui.config({
                 title: '权限',
                 align: 'center'
             }
-            , {field: 'dname', templet: '<div>{{d.departmentList[0].dname}}</div>', title: '部门', align: 'center'}
+            , {field: 'dName', templet: '<div>{{d.departmentList[0].dName}}</div>', title: '部门', align: 'center'}
             , {
                 field: 'isDel', title: '状态', width: 100, align: 'center', templet: function (data) {
                     if (data.isDel == 0) {
@@ -300,8 +300,8 @@ $(function () {
                         align: 'center'
                     }
                         , {
-                        field: 'dname',
-                        templet: '<div>{{d.departmentList[0].dname}}</div>',
+                        field: 'dName',
+                        templet: '<div>{{d.departmentList[0].dName}}</div>',
                         title: '部门',
                         align: 'center'
                     }

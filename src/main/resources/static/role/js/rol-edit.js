@@ -26,7 +26,7 @@ layui.use(['form', 'layer'], function () {
             }
         });
     })
-/*
+
 
     $(function () {
         $.ajax({
@@ -50,7 +50,7 @@ layui.use(['form', 'layer'], function () {
             }
         });
     })
-*/
+
 
     //监听提交
     form.on('submit(edit)', function (data) {

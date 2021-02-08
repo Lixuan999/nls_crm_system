@@ -70,11 +70,11 @@ layui.use(['form', 'layer'], function () {
                                 type: 'success',
                                 showClose: true
                             });
-                            //操作成功后页面2秒后刷新
+                            //操作成功后页面1秒后刷新
                             setTimeout(function () {
                                 layer.closeAll("iframe");
                                 parent.location.reload();
-                            }, 2000);
+                            }, 1000);
                         }
 
                         if (data.code == 100) {
@@ -96,6 +96,7 @@ layui.use(['form', 'layer'], function () {
                     }
 
                 });
+
                 layer.close(index);
             }
         })

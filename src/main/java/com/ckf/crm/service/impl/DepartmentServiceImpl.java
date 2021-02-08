@@ -5,8 +5,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ckf.crm.entity.Department;
 import com.ckf.crm.entity.DeptRole;
 import com.ckf.crm.entity.Employee;
+import com.ckf.crm.entity.Role;
 import com.ckf.crm.mapper.DepartmentMapper;
 import com.ckf.crm.mapper.DeptRoleMapper;
+import com.ckf.crm.mapper.RoleMapper;
 import com.ckf.crm.service.DepartmentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ckf.crm.utils.TimeUtils;
@@ -39,6 +41,9 @@ public class DepartmentServiceImpl extends ServiceImpl<DepartmentMapper, Departm
     @Autowired
     private DeptRoleMapper deptRoleMapper;
 
+    @Autowired
+    private RoleMapper roleMapper;
+
     /**
      * 全查询部门信息
      *
@@ -51,6 +56,7 @@ public class DepartmentServiceImpl extends ServiceImpl<DepartmentMapper, Departm
 
     /**
      * 条件查询部门信息
+     *
      * @param department
      * @return
      */
@@ -84,23 +90,35 @@ public class DepartmentServiceImpl extends ServiceImpl<DepartmentMapper, Departm
         System.out.println("role数据--" + department);
         logger.info("roleId={}" + roleId);
 
-        department.setCreateTime(TimeUtils.dateTime());
-        department.setUpdateTime(TimeUtils.dateTime());
-        department.setIsDel(0);
 
         int result = departmentMapper.insert(department);
 
         int departmentId = department.getDepartmentId();
         DeptRole deptRole = new DeptRole(departmentId, roleId);
 
-        deptRole.setCreateTime(TimeUtils.dateTime());
-        deptRole.setUpdateTime(TimeUtils.dateTime());
-
-        deptRole.setIsDel(0);
-
         deptRoleMapper.insert(deptRole);
         return result;
     }
+
+    @Override
+    public Integer addDepRole(Role role, Integer departmentId) {
+
+
+        System.out.println("-----------0.0---------------------");
+        System.out.println(role);
+        System.out.println("departmentId="+departmentId);
+
+        Role roleInfo = roleMapper.selectOne(new QueryWrapper<Role>().eq("r_name", role.getRName()));
+        Integer roleId = roleInfo.getRolId();
+
+
+        DeptRole deptRole = new DeptRole(departmentId, roleId);
+
+        int result = deptRoleMapper.insert(deptRole);
+        return result;
+    }
+
+
 
     /**
      * 修改部门信息

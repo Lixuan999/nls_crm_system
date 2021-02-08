@@ -31,6 +31,7 @@ public interface RoleService extends IService<Role> {
 
     /**
      * 查询部门角色
+     *
      * @param departmentId
      * @return
      */
@@ -41,9 +42,10 @@ public interface RoleService extends IService<Role> {
      *
      * @param role
      * @param permId
+     * @param departmentId
      * @return
      */
-    Integer addRole(Role role, Integer permId);
+    Integer addRole(Role role, Integer permId, Integer departmentId);
 
 
     /**
@@ -71,7 +73,6 @@ public interface RoleService extends IService<Role> {
     List<Role> selectRoleNameLike(String rName);
 
 
-
     /**
      * 全查询角色和权限
      *
@@ -80,7 +81,7 @@ public interface RoleService extends IService<Role> {
 
     List<Role> selectRolePermissionAll();
 
-   /* *//**
+    /* *//**
      * 辅助类全查询角色和权限
      *
      * @return

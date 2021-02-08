@@ -53,8 +53,10 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
 
     @Autowired
     private DeptRoleMapper deptRoleMapper;
+
     /**
      * 条件查员工查询角色信息
+     *
      * @param employeeId
      * @return
      */
@@ -79,6 +81,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
 
     /**
      * 条件查询部门角色信息
+     *
      * @param departmentId
      * @return
      */
@@ -108,12 +111,17 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
      * @return
      */
     @Override
-    public Integer addRole(Role role, Integer permId) {
+    public Integer addRole(Role role, Integer permId, Integer departmentId) {
         System.out.println("-------------进入添加角色service实现层---------------");
 
         int result = roleMapper.insert(role);
 
-        System.out.println("role数据--" + role);
+        System.out.println("---------------roleId是" + role.getRolId());
+
+        DeptRole deptRole = new DeptRole(departmentId, role.getRolId());
+
+        deptRoleMapper.insert(deptRole);
+
         logger.info("permId={}" + permId);
 
         int roleId = role.getRolId();
@@ -190,7 +198,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         return roleMapper.selectRolePermissionAll();
     }
 
-/*    *//**
+    /*    *//**
      * 辅助类 全查询加色和权限
      *
      * @return

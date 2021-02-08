@@ -2,6 +2,7 @@ package com.ckf.crm.service;
 
 import com.ckf.crm.entity.Department;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ckf.crm.entity.Role;
 
 
 import java.util.List;
@@ -39,6 +40,14 @@ public interface DepartmentService extends IService<Department> {
      */
     Integer addDepartment(Department department, Integer roleId);
 
+
+    /**
+     * 添加部门和角色关系信息
+     * @param role
+     * @param departmentId
+     * @return
+     */
+    Integer addDepRole(Role role, Integer departmentId);
 
     /**
      * 修改部门信息

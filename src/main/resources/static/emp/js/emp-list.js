@@ -44,8 +44,8 @@ layui.config({
                 align: 'center'
             }
             , {
-                field: 'dname',
-                templet: '<div>{{d.roleList[0].departmentList[0].dname}}</div>',
+                field: 'dName',
+                templet: '<div>{{d.roleList[0].departmentList[0].dName}}</div>',
                 title: '部门',
                 align: 'center'
             }
@@ -387,8 +387,8 @@ $(function () {
                         align: 'center'
                     }
                         , {
-                        field: 'dname',
-                        templet: '<div>{{d.roleList[0].departmentList[0].dname}}</div>',
+                        field: 'dName',
+                        templet: '<div>{{d.roleList[0].departmentList[0].dName}}</div>',
                         title: '部门',
                         align: 'center'
                     }

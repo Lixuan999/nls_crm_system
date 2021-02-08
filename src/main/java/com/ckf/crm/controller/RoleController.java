@@ -238,16 +238,16 @@ public class RoleController {
      * @param role
      * @return
      */
-    @ApiOperation("根据ID添加角色接口")
+    @ApiOperation("角色管理新增")
     @PostMapping(path = "/rolAdd")
     @ResponseBody
-    public Map<String, Object> add(Role role, Integer permId) {
+    public Map<String, Object> add(Role role, Integer permId,Integer departmentId) {
         System.out.println("------------进入添加角色信息模式--------------");
 
         System.out.println("role--" + role);
         System.out.println("permId--" + permId);
 
-        Integer flag = roleService.addRole(role, permId);
+        Integer flag = roleService.addRole(role, permId,departmentId);
 
         if (flag > 0) {
             log.info("添加成功");
