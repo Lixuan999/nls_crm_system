@@ -14,7 +14,7 @@ layui.use(['form', 'layer'], function () {
         success: function (data) {
             console.log(data);
             $.each(data, function (index, item) {
-                $('#rName').append(new Option(item.rname, item.rolId));// 下拉菜单里添加元素
+                $('#rName').append(new Option(item.rName, item.rolId));// 下拉菜单里添加元素
             });
 
             layui.form.render("select");

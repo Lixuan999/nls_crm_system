@@ -27,7 +27,7 @@ layui.config({
             , {field: 'permName', title: '权限名称', align: 'center'}
             , {field: 'permission', title: '权限', align: 'center'}
             , {field: 'url', title: '权限规则', align: 'center'}
-            , {field: 'rName', templet: '<div>{{d.roleList[0].rname}}</div>', title: '角色', align: 'center'}
+            , {field: 'rName', templet: '<div>{{d.roleList[0].rName}}</div>', title: '角色', align: 'center'}
             , {
                 field: 'isDel', title: '状态', width: 100, align: 'center', templet: function (data) {
                     if (data.isDel == 0) {
@@ -41,7 +41,7 @@ layui.config({
             }
             , {field: 'createTime', title: '创建时间', align: 'center'}
             , {field: 'updateTime', title: '修改时间', align: 'center'}
-            , {fixed: 'right',align: 'center', toolbar: '#barDemo', title: '操作', align: 'center'}
+            , {fixed: 'right', align: 'center', toolbar: '#barDemo', title: '操作', align: 'center'}
         ]]
 
         , limit: 10
@@ -377,7 +377,15 @@ $(function () {
                         , {field: 'permName', title: '权限名称', align: 'center'}
                         , {field: 'permission', title: '权限', align: 'center'}
                         , {field: 'url', title: '权限规则', align: 'center'}
-                        , {field: 'rName', templet: '<div>{{d.roleList[0].rname}}</div>', title: '角色', align: 'center'}
+                        , {
+                        field: 'roleList', templet: function (data) {
+                            const list = [];
+                            data.roleList.forEach(item => {
+                                list.push(item.rName);
+                            });
+                            return list.toString();
+                        }, title: '角色列表', align: 'center', width: 320
+                    }
                         , {
                         field: 'isDel', title: '状态', width: 100, align: 'center', templet: function (data) {
                             if (data.isDel == 0) {
@@ -391,7 +399,14 @@ $(function () {
                     }
                         , {field: 'createTime', title: '创建时间', align: 'center'}
                         , {field: 'updateTime', title: '修改时间', align: 'center'}
-                        , {fixed: 'right', width: 100, align: 'center', toolbar: '#barDemo', title: '操作', align: 'center'}
+                        , {
+                        fixed: 'right',
+                        width: 100,
+                        align: 'center',
+                        toolbar: '#barDemo',
+                        title: '操作',
+                        align: 'center'
+                    }
                     ]
                 ]
                 , page: true

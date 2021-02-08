@@ -30,11 +30,11 @@ layui.config({
             , {
                 field: 'roleList', templet: function (data) {
                     const list = [];
-                    data.roleList.forEach((item) => {
+                    data.roleList.forEach(item => {
                         list.push(item.rName);
                     });
                     return list.toString();
-                }, title: '角色列表', align: 'center',width:320
+                }, title: '角色列表', align: 'center', width: 320
             }
             , {field: 'createTime', title: '创建时间', align: 'center', sort: true}
             , {field: 'updateTime', title: '修改时间', align: 'center', sort: true}
